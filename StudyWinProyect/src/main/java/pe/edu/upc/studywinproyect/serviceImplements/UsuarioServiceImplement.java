@@ -22,4 +22,9 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public void insert(Usuario usuario) {
         uR.save(usuario);
     }
+    //Como programador quiero listar por id a los usuarios
+    @Override
+    public Usuario listID(int id) {
+        return uR.findById(id).orElse(new Usuario());
+    }
 }

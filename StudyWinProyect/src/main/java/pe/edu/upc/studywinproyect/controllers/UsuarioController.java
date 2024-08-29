@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 public class UsuarioController {
     @Autowired
     private IUsuarioService uS;
+    //Como programador quiero listar los usuarios para gestionarlos
     @GetMapping
     public List<UsuarioDTO> listar() {
         return uS.list().stream().map(x->{
@@ -22,10 +23,18 @@ public class UsuarioController {
             return m.map(x,UsuarioDTO.class);
         }).collect(Collectors.toList());
     }
+    //Como programador quiero guardar a los usuarios para gestionarlos
     @PostMapping
     public void registrar(@RequestBody UsuarioDTO dto) {
         ModelMapper m=new ModelMapper();
         Usuario u=m.map(dto,Usuario.class);
         uS.insert(u);
+    }
+    //Como programador quiero listar por id a los usuarios
+    @GetMapping("/{id}")
+    public UsuarioDTO listarporID(@PathVariable("id") Integer id){
+        ModelMapper m=new ModelMapper();
+        UsuarioDTO dto=m.map(uS.listID(id),UsuarioDTO.class);
+        return dto;
     }
 }
