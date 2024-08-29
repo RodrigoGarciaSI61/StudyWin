@@ -27,4 +27,14 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public Usuario listID(int id) {
         return uR.findById(id).orElse(new Usuario());
     }
+    //Como progrmador quiero modificar a los usuarios para gestionarlos
+    @Override
+    public void update(Usuario usuario) {
+        uR.save(usuario);
+    }
+    //Como programador quiero eliminar a los usuarios para gestionarlos
+    @Override
+    public void delete(int id) {
+        uR.deleteById(id);
+    }
 }

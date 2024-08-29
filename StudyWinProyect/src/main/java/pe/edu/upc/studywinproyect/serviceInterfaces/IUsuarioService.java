@@ -11,4 +11,8 @@ public interface IUsuarioService {
     public void insert(Usuario usuario);
     //Como programador quiero listar por id a los usuarios
     public Usuario listID(int id);
+    //Como progrmador quiero modificar a los usuarios para gestionarlos
+    public void update(Usuario usuario);
+    //Como programador quiero eliminar a los usuarios para gestionarlos
+    public void delete(int id);
 }

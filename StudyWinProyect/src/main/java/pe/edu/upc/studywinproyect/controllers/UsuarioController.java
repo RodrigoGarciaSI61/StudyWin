@@ -37,4 +37,16 @@ public class UsuarioController {
         UsuarioDTO dto=m.map(uS.listID(id),UsuarioDTO.class);
         return dto;
     }
+    //Como progrmador quiero modificar a los usuarios para gestionarlos
+    @PutMapping
+    public void modificar(@RequestBody UsuarioDTO dto){
+        ModelMapper m = new ModelMapper();
+        Usuario ro=m.map(dto,Usuario.class);
+        uS.update(ro);
+    }
+    //Como programador quiero eliminar a los usuarios para gestionarlos
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id){
+        uS.delete(id);
+    }
 }
