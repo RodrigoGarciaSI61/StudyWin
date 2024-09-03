@@ -37,4 +37,9 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public void delete(int id) {
         uR.deleteById(id);
     }
+    //Como usuario quiero buscar por nombre a los usuarios para gestionarlo
+    @Override
+    public List<Usuario> buscar(String nombre,String apellidos) {
+        return uR.buscar(nombre, apellidos);
+    }
 }

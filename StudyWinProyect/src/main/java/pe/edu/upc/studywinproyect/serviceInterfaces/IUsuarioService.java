@@ -15,4 +15,6 @@ public interface IUsuarioService {
     public void update(Usuario usuario);
     //Como programador quiero eliminar a los usuarios para gestionarlos
     public void delete(int id);
+    //Como usuario quiero buscar por nombre a los usuarios para gestionarlo
+    public List<Usuario> buscar(String nombre, String apellidos);
 }

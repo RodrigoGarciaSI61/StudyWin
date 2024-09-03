@@ -1,5 +1,5 @@
 package pe.edu.upc.studywinproyect.dtos;
-
+//No se toca a menos que se modifique la base de datos
 public class UsuarioDTO {
     private int id_usuario;
     private String nombres;

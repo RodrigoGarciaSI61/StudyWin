@@ -1,7 +1,7 @@
 package pe.edu.upc.studywinproyect.entities;
 
 import jakarta.persistence.*;
-
+//No se toca a menos que se modifique la base de datos
 @Entity
 @Table(name = "Usuario")
 public class Usuario {
