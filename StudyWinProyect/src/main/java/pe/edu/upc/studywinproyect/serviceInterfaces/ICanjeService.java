@@ -2,7 +2,6 @@ package pe.edu.upc.studywinproyect.serviceInterfaces;
 import pe.edu.upc.studywinproyect.entities.Canje;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 
 public interface ICanjeService {
