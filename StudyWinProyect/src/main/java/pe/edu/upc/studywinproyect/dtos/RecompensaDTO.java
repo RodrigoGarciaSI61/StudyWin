@@ -4,7 +4,7 @@ import pe.edu.upc.studywinproyect.entities.TipoRecompensa;
 
 public class RecompensaDTO {
 
-    private int id_tipo_recompensa;
+    private int id_recompensa;
 
     private String nombre;
 
@@ -17,11 +17,11 @@ public class RecompensaDTO {
     private TipoRecompensa tipo_recompensa;
 
     public int getId_tipo_recompensa() {
-        return id_tipo_recompensa;
+        return id_recompensa;
     }
 
-    public void setId_tipo_recompensa(int id_tipo_recompensa) {
-        this.id_tipo_recompensa = id_tipo_recompensa;
+    public void setId_tipo_recompensa(int id_recompensa) {
+        this.id_recompensa = id_recompensa;
     }
 
     public String getNombre() {

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import pe.edu.upc.studywinproyect.entities.Curso;
 import pe.edu.upc.studywinproyect.repositories.ICursoRepository;
 import pe.edu.upc.studywinproyect.serviceInterfaces.ICursoService;
-
 import java.util.List;
 
 @Service

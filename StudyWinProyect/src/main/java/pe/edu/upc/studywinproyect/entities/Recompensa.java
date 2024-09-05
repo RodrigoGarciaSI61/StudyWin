@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Recompensa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_tipo_recompensa;
+    private int id_recompensa;
 
     @Column(name = "nombre", nullable = false, length = 25)
     private String nombre;
@@ -28,8 +28,8 @@ public class Recompensa {
     public Recompensa() {
     }
 
-    public Recompensa(int id_tipo_recompensa, String nombre, String descripcion, int precio_puntos, int stock, TipoRecompensa tipo_recompensa) {
-        this.id_tipo_recompensa = id_tipo_recompensa;
+    public Recompensa(int id_recompensa, String nombre, String descripcion, int precio_puntos, int stock, TipoRecompensa tipo_recompensa) {
+        this.id_recompensa = id_recompensa;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio_puntos = precio_puntos;
@@ -38,11 +38,11 @@ public class Recompensa {
     }
 
     public int getId_tipo_recompensa() {
-        return id_tipo_recompensa;
+        return id_recompensa;
     }
 
-    public void setId_tipo_recompensa(int id_tipo_recompensa) {
-        this.id_tipo_recompensa = id_tipo_recompensa;
+    public void setId_tipo_recompensa(int id_recompensa) {
+        this.id_recompensa = id_recompensa;
     }
 
     public String getNombre() {

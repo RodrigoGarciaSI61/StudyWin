@@ -1,8 +1,5 @@
 package pe.edu.upc.studywinproyect.serviceInterfaces;
-
 import pe.edu.upc.studywinproyect.entities.Curso;
-import pe.edu.upc.studywinproyect.entities.Usuario;
-
 import java.util.List;
 
 public interface ICursoService {
