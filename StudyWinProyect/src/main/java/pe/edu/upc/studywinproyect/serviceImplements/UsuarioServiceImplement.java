@@ -24,7 +24,7 @@ public class UsuarioServiceImplement implements IUsuarioService {
     }
     //Como programador quiero listar por id a los usuarios
     @Override
-    public Usuario listID(int id) {
+    public Usuario listID(Long id) {
         return uR.findById(id).orElse(new Usuario());
     }
     //Como progrmador quiero modificar a los usuarios para gestionarlos
@@ -34,7 +34,7 @@ public class UsuarioServiceImplement implements IUsuarioService {
     }
     //Como programador quiero eliminar a los usuarios para gestionarlos
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         uR.deleteById(id);
     }
     //Como usuario quiero buscar por nombre a los usuarios para gestionarlo

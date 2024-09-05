@@ -10,11 +10,11 @@ public interface IUsuarioService {
     //Como programador quiero guardar a los usuarios para gestionarlos
     public void insert(Usuario usuario);
     //Como programador quiero listar por id a los usuarios
-    public Usuario listID(int id);
+    public Usuario listID(Long id);
     //Como progrmador quiero modificar a los usuarios para gestionarlos
     public void update(Usuario usuario);
     //Como programador quiero eliminar a los usuarios para gestionarlos
-    public void delete(int id);
+    public void delete(Long id);
     //Como usuario quiero buscar por nombre a los usuarios para gestionarlo
     public List<Usuario> buscar(String nombre, String apellidos);
 }

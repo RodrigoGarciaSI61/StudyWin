@@ -2,6 +2,7 @@ package pe.edu.upc.studywinproyect.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.studywinproyect.dtos.UsuarioDTO;
 import pe.edu.upc.studywinproyect.entities.Usuario;
@@ -15,6 +16,9 @@ import java.util.stream.Collectors;
 public class UsuarioController {
     @Autowired
     private IUsuarioService uS;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     //Como programador quiero listar los usuarios para gestionarlos
     @GetMapping
     public List<UsuarioDTO> listar() {
@@ -28,11 +32,13 @@ public class UsuarioController {
     public void registrar(@RequestBody UsuarioDTO dto) {
         ModelMapper m=new ModelMapper();
         Usuario u=m.map(dto,Usuario.class);
+        String encodedPassword = passwordEncoder.encode(u.getContrasena());
+        u.setContrasena(encodedPassword);
         uS.insert(u);
     }
     //Como programador quiero listar por id a los usuarios
     @GetMapping("/{id}")
-    public UsuarioDTO listarporID(@PathVariable("id") Integer id){
+    public UsuarioDTO listarporID(@PathVariable("id") Long id){
         ModelMapper m=new ModelMapper();
         UsuarioDTO dto=m.map(uS.listID(id),UsuarioDTO.class);
         return dto;
@@ -46,7 +52,7 @@ public class UsuarioController {
     }
     //Como programador quiero eliminar a los usuarios para gestionarlos
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id){
+    public void eliminar(@PathVariable("id") Long id){
         uS.delete(id);
     }
     //Como usuario quiero buscar por nombre a los usuarios para gestionarlo

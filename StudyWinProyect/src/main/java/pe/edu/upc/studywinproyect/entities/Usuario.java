@@ -1,13 +1,18 @@
 package pe.edu.upc.studywinproyect.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
+import java.util.List;
+
 //No se toca a menos que se modifique la base de datos
 @Entity
 @Table(name = "Usuario")
-public class Usuario {
+public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_usuario;
+    private Long id_usuario;
 
     @Column(name = "nombres",nullable = false,length = 40)
     private String nombres;
@@ -15,13 +20,13 @@ public class Usuario {
     @Column(name="apellidos",nullable = false,length = 40)
     private String apellidos;
 
-    @Column(name="dni",nullable = false,length = 10 )
+    @Column(name="dni",length = 10, unique = true )
     private String dni;
 
     @Column(name="email",nullable = false,length = 100 )
     private String email;
 
-    @Column(name="contrasena",nullable = false,length = 50 )
+    @Column(name="contrasena",nullable = false,length = 200 )
     private String contrasena;
 
     @Column(name="puntos_usuario",nullable = false )
@@ -30,10 +35,18 @@ public class Usuario {
     @Column(name="institucion_educativa",nullable = false, length = 50)
     private String institucion_educativa;
 
+    @Column(name="enabled")
+    private Boolean enabled;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<Role> roles;
+
     public Usuario() {
     }
 
-    public Usuario(int id_usuario, String nombres, String apellidos, String dni, String email, String contrasena, int puntos_usuario, String institucion_educativa) {
+    public Usuario(Long id_usuario, String nombres, String apellidos, String dni, String email, String contrasena, int puntos_usuario, String institucion_educativa) {
         this.id_usuario = id_usuario;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -44,11 +57,11 @@ public class Usuario {
         this.institucion_educativa = institucion_educativa;
     }
 
-    public int getId_usuario() {
+    public Long getId_usuario() {
         return id_usuario;
     }
 
-    public void setId_usuario(int id_usuario) {
+    public void setId_usuario(Long id_usuario) {
         this.id_usuario = id_usuario;
     }
 
@@ -106,5 +119,21 @@ public class Usuario {
 
     public void setInstitucion_educativa(String institucion_educativa) {
         this.institucion_educativa = institucion_educativa;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

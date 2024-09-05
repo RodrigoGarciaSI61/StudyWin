@@ -1,7 +1,7 @@
 package pe.edu.upc.studywinproyect.dtos;
 //No se toca a menos que se modifique la base de datos
 public class UsuarioDTO {
-    private int id_usuario;
+    private Long id_usuario;
     private String nombres;
     private String apellidos;
     private String dni;
@@ -9,12 +9,21 @@ public class UsuarioDTO {
     private String contrasena;
     private int puntos_usuario;
     private String institucion_educativa;
+    private Boolean enabled;
 
-    public int getId_usuario() {
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Long getId_usuario() {
         return id_usuario;
     }
 
-    public void setId_usuario(int id_usuario) {
+    public void setId_usuario(Long id_usuario) {
         this.id_usuario = id_usuario;
     }
 
