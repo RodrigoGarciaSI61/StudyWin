@@ -27,4 +27,7 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     //Como usuario quiero buscar por DNI a los usuarios para gestionarlo
     @Query("SELECT u FROM Usuario u WHERE u.dni=:dni")
     public List<Usuario> buscarporDni(String dni);
+    //Como usuario quiero buscar por institucion educativa a los usuarios para gestionarlo
+    @Query("SELECT u FROM Usuario u WHERE u.institucion_educativa=:institucion_educativa")
+    public List<Usuario> buscarporIE(String institucion_educativa);
 }

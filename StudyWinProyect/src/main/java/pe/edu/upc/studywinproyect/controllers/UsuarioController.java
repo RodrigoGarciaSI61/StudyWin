@@ -72,4 +72,12 @@ public class UsuarioController {
             return m.map(x,UsuarioDTO.class);
         }).collect(Collectors.toList());
     }
+    //Como usuario quiero buscar por institucion educativa a los usuarios para gestionarlo
+    @GetMapping("/busquedabyIE")
+    public List<UsuarioDTO> buscarporIE(@RequestParam String IE){
+        return uS.buscarporIE(IE).stream().map(x->{
+            ModelMapper m = new ModelMapper();
+            return m.map(x,UsuarioDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

@@ -47,4 +47,9 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public List<Usuario> buscarporDni(String dni) {
         return uR.buscarporDni(dni);
     }
+
+    @Override
+    public List<Usuario> buscarporIE(String IE) {
+        return uR.buscarporIE(IE);
+    }
 }
