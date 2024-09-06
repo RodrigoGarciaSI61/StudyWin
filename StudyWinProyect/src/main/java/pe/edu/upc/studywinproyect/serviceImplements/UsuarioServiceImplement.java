@@ -39,7 +39,12 @@ public class UsuarioServiceImplement implements IUsuarioService {
     }
     //Como usuario quiero buscar por nombre a los usuarios para gestionarlo
     @Override
-    public List<Usuario> buscar(String nombre,String apellidos) {
+    public List<Usuario> buscarporNombre(String nombre,String apellidos) {
         return uR.buscar(nombre, apellidos);
+    }
+    //Como usuario quiero buscar por DNI a los usuarios para gestionarlo
+    @Override
+    public List<Usuario> buscarporDni(String dni) {
+        return uR.buscarporDni(dni);
     }
 }

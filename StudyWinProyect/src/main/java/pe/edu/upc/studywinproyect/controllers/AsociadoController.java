@@ -54,14 +54,14 @@ public class AsociadoController {
         aS.delete(id);
     }
     //Como programador quiero buscar a los asociados por fecha para gestionarlos
-    @GetMapping("/busquedafecha")
+    @GetMapping("/busquedabyfecha")
     public List<AsociadoDTO> buscar(@RequestParam LocalDate f){
         return aS.buscarFecha(f).stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,AsociadoDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/busquedanombre")
+    @GetMapping("/busquedabynombre")
     public List<AsociadoDTO> buscar(@RequestParam String e){
         return aS.findByEmpresaContaining(e).stream().map(x->{
             ModelMapper m=new ModelMapper();

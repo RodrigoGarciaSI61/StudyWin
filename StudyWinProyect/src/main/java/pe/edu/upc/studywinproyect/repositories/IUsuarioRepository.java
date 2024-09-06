@@ -23,4 +23,8 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     @Modifying
     @Query(value = "insert into roles (rol, user_id) VALUES (:rol, :user_id)", nativeQuery = true)
     public void insRol(@Param("rol") String authority, @Param("user_id") Long user_id);
+
+    //Como usuario quiero buscar por DNI a los usuarios para gestionarlo
+    @Query("SELECT u FROM Usuario u WHERE u.dni=:dni")
+    public List<Usuario> buscarporDni(String dni);
 }

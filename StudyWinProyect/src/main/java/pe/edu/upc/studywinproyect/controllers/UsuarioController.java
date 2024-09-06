@@ -55,10 +55,19 @@ public class UsuarioController {
     public void eliminar(@PathVariable("id") Long id){
         uS.delete(id);
     }
+
     //Como usuario quiero buscar por nombre a los usuarios para gestionarlo
     @GetMapping("/busquedabyname")
-    public List<UsuarioDTO> buscar(@RequestParam String nombre, @RequestParam String apellidos){
-        return uS.buscar(nombre,apellidos).stream().map(x->{
+    public List<UsuarioDTO> buscar(@RequestParam String n, @RequestParam String a){
+        return uS.buscarporNombre(n,a).stream().map(x->{
+            ModelMapper m = new ModelMapper();
+            return m.map(x,UsuarioDTO.class);
+        }).collect(Collectors.toList());
+    }
+    //Como usuario quiero buscar por DNI a los usuarios para gestionarlo
+    @GetMapping("/busquedabydni")
+    public List<UsuarioDTO> buscarporDni(@RequestParam String dni){
+        return uS.buscarporDni(dni).stream().map(x->{
             ModelMapper m = new ModelMapper();
             return m.map(x,UsuarioDTO.class);
         }).collect(Collectors.toList());
