@@ -36,9 +36,14 @@ public class CanjeServiceImplement implements ICanjeService {
     public void delete(int id) {
         cR.deleteById(id);
     }
-
+    //Como usuario quiero buscar por fecha a los canjes para gestionarlos
     @Override
     public List<Canje> buscarFecha(LocalDate fecha) {
         return cR.findByPurchaseDateDevice(fecha);
+    }
+    //Como usuario quiero buscar por departamento a los canjes para gestionarlos
+    @Override
+    public List<Canje> buscarDepartamento(String departamento) {
+        return cR.buscarDepartamento(departamento);
     }
 }

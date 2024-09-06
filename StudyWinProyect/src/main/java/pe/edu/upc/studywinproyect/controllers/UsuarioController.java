@@ -56,7 +56,7 @@ public class UsuarioController {
         uS.delete(id);
     }
     //Como usuario quiero buscar por nombre a los usuarios para gestionarlo
-    @GetMapping("/busquedabyname")
+    @GetMapping("/busquedabynombre")
     public List<UsuarioDTO> buscar(@RequestParam String n, @RequestParam String a){
         return uS.buscarporNombre(n,a).stream().map(x->{
             ModelMapper m = new ModelMapper();

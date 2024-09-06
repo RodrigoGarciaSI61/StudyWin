@@ -41,7 +41,6 @@ public class CursoServiceImplement implements ICursoService {
     public List<Curso> buscarporNombre(String nombre) {
         return cR.buscarporNombre(nombre);
     }
-
     @Override
     public List<Curso> buscarporCategoria(String categoria) {
         return cR.buscarporCategoria(categoria);

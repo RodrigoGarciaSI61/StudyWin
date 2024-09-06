@@ -44,7 +44,7 @@ public class RecompensaController {
         rS.delete(id);
     }
 
-    @GetMapping("/busquedas")
+    @GetMapping("/busquedabynombre")
     public List<RecompensaDTO> buscarpornombre(@RequestParam String n){
         return rS.buscarNombre(n).stream().map(x->{
             ModelMapper m = new ModelMapper();

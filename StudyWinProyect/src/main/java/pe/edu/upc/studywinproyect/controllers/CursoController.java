@@ -1,5 +1,4 @@
 package pe.edu.upc.studywinproyect.controllers;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -7,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.studywinproyect.dtos.CursoDTO;
 import pe.edu.upc.studywinproyect.entities.Curso;
 import pe.edu.upc.studywinproyect.serviceInterfaces.ICursoService;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

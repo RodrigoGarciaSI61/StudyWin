@@ -23,9 +23,9 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     @Query(value = "insert into roles (rol, user_id) VALUES (:rol, :user_id)", nativeQuery = true)
     public void insRol(@Param("rol") String authority, @Param("user_id") Long user_id);
     //Como usuario quiero buscar por DNI a los usuarios para gestionarlo
-    @Query("SELECT u FROM Usuario u WHERE u.dni=:dni")
+    @Query("SELECT u FROM Usuario u WHERE u.dni LIKE %:dni")
     public List<Usuario> buscarporDni(String dni);
     //Como usuario quiero buscar por institucion educativa a los usuarios para gestionarlo
-    @Query("SELECT u FROM Usuario u WHERE u.institucion_educativa=:institucion_educativa")
+    @Query("SELECT u FROM Usuario u WHERE u.institucion_educativa LIKE %:institucion_educativa")
     public List<Usuario> buscarporIE(String institucion_educativa);
 }
