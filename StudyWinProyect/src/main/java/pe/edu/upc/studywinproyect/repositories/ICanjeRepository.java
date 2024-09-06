@@ -10,4 +10,10 @@ public interface ICanjeRepository extends JpaRepository<Canje, Integer> {
     //Como usuario quiero buscar por departamento a los canjes para gestionarlos
     @Query("SELECT c FROM Canje c WHERE c.departamento LIKE %:departamento%")
     List<Canje> buscarDepartamento(String departamento);
+    //Como usuario quiero listar los canjes por usuario para gestionarlos
+    @Query(value="SELECT U.id_usuario, U.email, U.apellidos, COUNT(C.id_canje) AS cantidad_canjes\n" +
+            "FROM Usuario U\n" +
+            "LEFT JOIN Canje C ON U.id_usuario = C.id_usuario\n" +
+            "GROUP BY U.id_usuario, U.nombres, U.apellidos;",nativeQuery = true)
+    public List<String[]> canjexusuario();
 }

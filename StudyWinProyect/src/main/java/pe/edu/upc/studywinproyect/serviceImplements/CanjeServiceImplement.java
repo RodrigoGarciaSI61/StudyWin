@@ -46,4 +46,9 @@ public class CanjeServiceImplement implements ICanjeService {
     public List<Canje> buscarDepartamento(String departamento) {
         return cR.buscarDepartamento(departamento);
     }
+
+    @Override
+    public List<String[]> canjexusuario() {
+        return cR.canjexusuario();
+    }
 }

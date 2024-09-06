@@ -19,4 +19,6 @@ public interface ICanjeService {
     List<Canje> buscarFecha(LocalDate fecha);
     //Como usuario quiero buscar por departamento a los canjes para gestionarlos
     List<Canje> buscarDepartamento(String departamento);
+    //Como usuario quiero listar los canjes por usuario para gestionarlos
+    public List<String[]> canjexusuario();
 }
