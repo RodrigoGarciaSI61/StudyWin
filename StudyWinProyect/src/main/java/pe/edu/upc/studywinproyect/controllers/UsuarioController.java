@@ -55,7 +55,6 @@ public class UsuarioController {
     public void eliminar(@PathVariable("id") Long id){
         uS.delete(id);
     }
-
     //Como usuario quiero buscar por nombre a los usuarios para gestionarlo
     @GetMapping("/busquedabyname")
     public List<UsuarioDTO> buscar(@RequestParam String n, @RequestParam String a){
