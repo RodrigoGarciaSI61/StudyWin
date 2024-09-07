@@ -26,6 +26,15 @@ public class Asociado implements Serializable {
     public Asociado() {
     }
 
+    public Asociado(int id_asociado, String empresa, String descripcion, LocalDate fecha_inicio, LocalDate fecha_fin, String RUC) {
+        this.id_asociado = id_asociado;
+        this.empresa = empresa;
+        this.descripcion = descripcion;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_fin = fecha_fin;
+        this.RUC = RUC;
+    }
+
     public int getId_asociado() {
         return id_asociado;
     }

@@ -84,12 +84,11 @@ public class Recompensa {
         this.tipo_recompensa = tipo_recompensa;
     }
 
-    public pe.edu.upc.studywinproyect.entities.Asociado getAsociado() {
+    public Asociado getAsociado() {
         return Asociado;
     }
 
-    public void setAsociado(pe.edu.upc.studywinproyect.entities.Asociado asociado) {
+    public void setAsociado(Asociado asociado) {
         Asociado = asociado;
     }
-    //crear getter and setter y constt
 }
