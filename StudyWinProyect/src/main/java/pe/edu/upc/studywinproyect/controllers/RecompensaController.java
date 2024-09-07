@@ -3,10 +3,14 @@ package pe.edu.upc.studywinproyect.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import pe.edu.upc.studywinproyect.dtos.RecompensaDTO;
+import pe.edu.upc.studywinproyect.dtos.RecompensaxasociadoDTO;
+
 import pe.edu.upc.studywinproyect.entities.Recompensa;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IRecompensaService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,5 +54,24 @@ public class RecompensaController {
             ModelMapper m = new ModelMapper();
             return m.map(x,RecompensaDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/recompensaxasociado")
+    public List<RecompensaxasociadoDTO> recompesaxasociado(){
+        List<String[]> lista=rS.recompesaxasociado();
+        List<RecompensaxasociadoDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            RecompensaxasociadoDTO dto=new RecompensaxasociadoDTO();
+            dto.setId_asociado(Integer.parseInt(columna[0]));
+            dto.setEmpresa(columna[1]);
+            dto.setRUC(columna[2]);
+            if (columna[3] != null) {
+                dto.setCantidad_recompensas(Integer.parseInt(columna[3]));
+            }else {
+                dto.setCantidad_recompensas(0);
+            }
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

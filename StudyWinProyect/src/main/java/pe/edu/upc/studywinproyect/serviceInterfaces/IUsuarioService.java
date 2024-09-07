@@ -21,4 +21,5 @@ public interface IUsuarioService {
     public List<Usuario> buscarporDni(String dni);
     //Como usuario quiero buscar por institucion educativa a los usuarios para gestionarlo
     public List<Usuario> buscarporIE(String IE);
+    //Como programador quiero listar la cantidad de cursos por usuario para gestionarlos
 }

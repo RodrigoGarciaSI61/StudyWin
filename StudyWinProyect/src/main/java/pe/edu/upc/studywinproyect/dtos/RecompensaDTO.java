@@ -1,20 +1,34 @@
 package pe.edu.upc.studywinproyect.dtos;
 
+import pe.edu.upc.studywinproyect.entities.Asociado;
 import pe.edu.upc.studywinproyect.entities.TipoRecompensa;
 
 public class RecompensaDTO {
 
     private int id_recompensa;
-
     private String nombre;
-
     private String descripcion;
-
     private int precio_puntos;
-
     private int stock;
+    private Asociado Asociado;
+
+    public Asociado getAsociado() {
+        return Asociado;
+    }
+
+    public void setAsociado(Asociado asociado) {
+        Asociado = asociado;
+    }
 
     private TipoRecompensa tipo_recompensa;
+
+    public int getId_recompensa() {
+        return id_recompensa;
+    }
+
+    public void setId_recompensa(int id_recompensa) {
+        this.id_recompensa = id_recompensa;
+    }
 
     public int getId_tipo_recompensa() {
         return id_recompensa;

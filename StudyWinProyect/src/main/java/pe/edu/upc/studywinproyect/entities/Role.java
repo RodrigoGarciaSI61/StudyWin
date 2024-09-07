@@ -18,14 +18,12 @@ public class Role implements Serializable {
     @JoinColumn(name = "user_id", nullable = false)
     private Usuario user;
 
-
-    //GETTERS AND SETTERES
-
-    public Usuario getUser() {
-        return user;
+    public Role() {
     }
 
-    public void setUser(Usuario user) {
+    public Role(Long id, String rol, Usuario user) {
+        this.id = id;
+        this.rol = rol;
         this.user = user;
     }
 
@@ -45,4 +43,11 @@ public class Role implements Serializable {
         this.rol = rol;
     }
 
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
 }

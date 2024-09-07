@@ -6,6 +6,15 @@ public class AsociadoDTO {
     private String descripcion;
     private LocalDate fecha_inicio;
     private LocalDate fecha_fin;
+    private String RUC;
+
+    public String getRUC() {
+        return RUC;
+    }
+
+    public void setRUC(String RUC) {
+        this.RUC = RUC;
+    }
 
     public int getId_asociado() {
         return id_asociado;

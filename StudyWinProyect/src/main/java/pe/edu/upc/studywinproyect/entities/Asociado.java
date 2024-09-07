@@ -20,6 +20,8 @@ public class Asociado implements Serializable {
     private LocalDate fecha_inicio;
     @Column(name="fecha_fin",nullable = true)
     private LocalDate fecha_fin;
+    @Column(name = "ruc", nullable = false, length = 10)
+    private String RUC;
 
     public Asociado() {
     }
@@ -62,5 +64,13 @@ public class Asociado implements Serializable {
 
     public void setFecha_inicio(LocalDate fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
+    }
+
+    public String getRUC() {
+        return RUC;
+    }
+
+    public void setRUC(String RUC) {
+        this.RUC = RUC;
     }
 }
