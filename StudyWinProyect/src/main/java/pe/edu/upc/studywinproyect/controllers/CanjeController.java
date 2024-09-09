@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.studywinproyect.dtos.CanjeDTO;
+import pe.edu.upc.studywinproyect.dtos.CanjexUsuarioDTO;
 import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.serviceInterfaces.ICanjeService;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,11 +55,36 @@ public class CanjeController {
         cS.delete(id);
     }
     //Como programador quiero buscar a los canjes por fecha para gestionarlos
-    @GetMapping("/busquedas")
+    @GetMapping("/busquedabyfecha")
     public List<CanjeDTO> buscar(@RequestParam LocalDate f){
         return cS.buscarFecha(f).stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,CanjeDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/busquedabydepartamento")
+    public List<CanjeDTO> buscarDepartamento(@RequestParam String d){
+        return cS.buscarDepartamento(d).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x,CanjeDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/canjexusuario")
+    public List<CanjexUsuarioDTO> canjexusuario(){
+        List<String[]> lista=cS.canjexusuario();
+        List<CanjexUsuarioDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            CanjexUsuarioDTO dto=new CanjexUsuarioDTO();
+            dto.setId_usuario(Integer.parseInt(columna[0]));
+            dto.setEmail(columna[1]);
+            dto.setApellidos(columna[2]);
+            if (columna[3] != null) {
+                dto.setCatidad_canjes(Integer.parseInt(columna[3]));
+            }else {
+                dto.setCatidad_canjes(0);
+            }
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

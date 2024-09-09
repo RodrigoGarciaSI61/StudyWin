@@ -2,7 +2,6 @@ package pe.edu.upc.studywinproyect.serviceInterfaces;
 import pe.edu.upc.studywinproyect.entities.Canje;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 
 public interface ICanjeService {
@@ -18,4 +17,8 @@ public interface ICanjeService {
     public void delete(int id);
     //Como usuario quiero buscar por fecha a los canjes para gestionarlos
     List<Canje> buscarFecha(LocalDate fecha);
+    //Como usuario quiero buscar por departamento a los canjes para gestionarlos
+    List<Canje> buscarDepartamento(String departamento);
+    //Como usuario quiero listar los canjes por usuario para gestionarlos
+    public List<String[]> canjexusuario();
 }

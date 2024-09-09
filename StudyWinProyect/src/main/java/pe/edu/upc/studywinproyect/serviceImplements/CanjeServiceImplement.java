@@ -1,11 +1,9 @@
 package pe.edu.upc.studywinproyect.serviceImplements;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.repositories.ICanjeRepository;
 import pe.edu.upc.studywinproyect.serviceInterfaces.ICanjeService;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -38,9 +36,19 @@ public class CanjeServiceImplement implements ICanjeService {
     public void delete(int id) {
         cR.deleteById(id);
     }
-
+    //Como usuario quiero buscar por fecha a los canjes para gestionarlos
     @Override
     public List<Canje> buscarFecha(LocalDate fecha) {
         return cR.findByPurchaseDateDevice(fecha);
+    }
+    //Como usuario quiero buscar por departamento a los canjes para gestionarlos
+    @Override
+    public List<Canje> buscarDepartamento(String departamento) {
+        return cR.buscarDepartamento(departamento);
+    }
+
+    @Override
+    public List<String[]> canjexusuario() {
+        return cR.canjexusuario();
     }
 }

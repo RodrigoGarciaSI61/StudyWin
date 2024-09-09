@@ -37,4 +37,9 @@ public class RecompensaServiceImplement implements IRecompensaService {
     public List<Recompensa> buscarNombre(String nombre) {
         return rR.findByNombre(nombre);
     }
+    //Como usuario quiero listar la cantidad de recompensas por asociados para gestionarlos
+    @Override
+    public List<String[]> recompesaxasociado() {
+        return rR.recompesaxasociado();
+    }
 }

@@ -36,4 +36,13 @@ public class CursoServiceImplement implements ICursoService {
     public void delete(int id) {
         cR.deleteById(id);
     }
+    //Como programador quiero buscar a los cursos por nombre para gestionarlos
+    @Override
+    public List<Curso> buscarporNombre(String nombre) {
+        return cR.buscarporNombre(nombre);
+    }
+    @Override
+    public List<Curso> buscarporCategoria(String categoria) {
+        return cR.buscarporCategoria(categoria);
+    }
 }

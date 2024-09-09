@@ -1,15 +1,11 @@
 package pe.edu.upc.studywinproyect.controllers;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.studywinproyect.dtos.CursoDTO;
-import pe.edu.upc.studywinproyect.dtos.CursoDTO;
-import pe.edu.upc.studywinproyect.entities.Curso;
 import pe.edu.upc.studywinproyect.entities.Curso;
 import pe.edu.upc.studywinproyect.serviceInterfaces.ICursoService;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,5 +48,21 @@ public class CursoController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         cS.delete(id);
+    }
+    //Como programador quiero buscar a los cursos por nombre para gestionarlos
+    @GetMapping("/busquedabynombre")
+    public List<CursoDTO> buscarpornombre(@RequestParam String n){
+        return cS.buscarporNombre(n).stream().map(x->{
+            ModelMapper m = new ModelMapper();
+            return m.map(x,CursoDTO.class);
+        }).collect(Collectors.toList());
+    }
+    //Como programador quiero buscar a los cursos por nombre para gestionarlos
+    @GetMapping("/busquedabycategoria")
+    public List<CursoDTO> buscarporCategoria(@RequestParam String c){
+        return cS.buscarporCategoria(c).stream().map(x->{
+            ModelMapper m = new ModelMapper();
+            return m.map(x,CursoDTO.class);
+        }).collect(Collectors.toList());
     }
 }
