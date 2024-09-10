@@ -10,7 +10,16 @@ public class RecompensaDTO {
     private String descripcion;
     private int precio_puntos;
     private int stock;
+    private TipoRecompensa tipoRecompensa;
     private Asociado Asociado;
+
+    public TipoRecompensa getTipoRecompensa() {
+        return tipoRecompensa;
+    }
+
+    public void setTipoRecompensa(TipoRecompensa tipoRecompensa) {
+        this.tipoRecompensa = tipoRecompensa;
+    }
 
     public Asociado getAsociado() {
         return Asociado;

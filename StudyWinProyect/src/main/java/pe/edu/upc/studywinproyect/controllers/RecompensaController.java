@@ -2,12 +2,15 @@ package pe.edu.upc.studywinproyect.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import pe.edu.upc.studywinproyect.dtos.RecompensaDTO;
 import pe.edu.upc.studywinproyect.dtos.RecompensaxasociadoDTO;
 
+import pe.edu.upc.studywinproyect.dtos.RecompensaxtipoDTO;
 import pe.edu.upc.studywinproyect.entities.Recompensa;
+import pe.edu.upc.studywinproyect.entities.TipoRecompensa;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IRecompensaService;
 
 import java.util.ArrayList;
@@ -49,6 +52,7 @@ public class RecompensaController {
     }
 
     @GetMapping("/busquedabynombre")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<RecompensaDTO> buscarpornombre(@RequestParam String n){
         return rS.buscarNombre(n).stream().map(x->{
             ModelMapper m = new ModelMapper();
@@ -57,6 +61,7 @@ public class RecompensaController {
     }
 
     @GetMapping("/recompensaxasociado")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<RecompensaxasociadoDTO> recompesaxasociado(){
         List<String[]> lista=rS.recompesaxasociado();
         List<RecompensaxasociadoDTO>listaDTO=new ArrayList<>();
@@ -70,6 +75,20 @@ public class RecompensaController {
             }else {
                 dto.setCantidad_recompensas(0);
             }
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+    @GetMapping("/recompensaxtipo")
+    @PreAuthorize("hasAuthority('CLIENTE')")
+    public List<RecompensaxtipoDTO> obtenertipo(){
+        List<String[]> lista=rS.recompensaxtipo();
+        List<RecompensaxtipoDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            RecompensaxtipoDTO dto=new RecompensaxtipoDTO();
+            dto.setNombre(columna[0]);
+            dto.setTipo(columna[1]);
             listaDTO.add(dto);
         }
         return listaDTO;

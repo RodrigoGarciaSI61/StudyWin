@@ -3,6 +3,7 @@ package pe.edu.upc.studywinproyect.serviceImplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.studywinproyect.entities.Recompensa;
+import pe.edu.upc.studywinproyect.entities.TipoRecompensa;
 import pe.edu.upc.studywinproyect.repositories.IRecompensaRepository;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IRecompensaService;
 
@@ -37,9 +38,15 @@ public class RecompensaServiceImplement implements IRecompensaService {
     public List<Recompensa> buscarNombre(String nombre) {
         return rR.findByNombre(nombre);
     }
+
     //Como usuario quiero listar la cantidad de recompensas por asociados para gestionarlos
     @Override
     public List<String[]> recompesaxasociado() {
         return rR.recompesaxasociado();
+    }
+
+    @Override
+    public List<String[]> recompensaxtipo() {
+        return rR.recompensaxtipo();
     }
 }
