@@ -13,37 +13,11 @@ public class RecompensaDTO {
     private TipoRecompensa tipoRecompensa;
     private Asociado Asociado;
 
-    public TipoRecompensa getTipoRecompensa() {
-        return tipoRecompensa;
-    }
-
-    public void setTipoRecompensa(TipoRecompensa tipoRecompensa) {
-        this.tipoRecompensa = tipoRecompensa;
-    }
-
-    public Asociado getAsociado() {
-        return Asociado;
-    }
-
-    public void setAsociado(Asociado asociado) {
-        Asociado = asociado;
-    }
-
-    private TipoRecompensa tipo_recompensa;
-
     public int getId_recompensa() {
         return id_recompensa;
     }
 
     public void setId_recompensa(int id_recompensa) {
-        this.id_recompensa = id_recompensa;
-    }
-
-    public int getId_tipo_recompensa() {
-        return id_recompensa;
-    }
-
-    public void setId_tipo_recompensa(int id_recompensa) {
         this.id_recompensa = id_recompensa;
     }
 
@@ -80,10 +54,18 @@ public class RecompensaDTO {
     }
 
     public TipoRecompensa getTipo_recompensa() {
-        return tipo_recompensa;
+        return tipoRecompensa;
     }
 
-    public void setTipo_recompensa(TipoRecompensa tipo_recompensa) {
-        this.tipo_recompensa = tipo_recompensa;
+    public void setTipo_recompensa(TipoRecompensa tipo_Recompensa) {
+        tipoRecompensa = tipo_Recompensa;
+    }
+
+    public Asociado getAsociado() {
+        return Asociado;
+    }
+
+    public void setAsociado(Asociado asociado) {
+        Asociado = asociado;
     }
 }
