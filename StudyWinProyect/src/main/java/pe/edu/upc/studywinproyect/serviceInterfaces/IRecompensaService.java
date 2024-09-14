@@ -18,6 +18,8 @@ public interface IRecompensaService {
 
     public List<Recompensa> buscarNombre(String nombre);
 
+    public List<String[]> recompensaagotada();
+
     //Como usuario quiero listar la cantidad de recompensas por asociados para gestionarlos
     public List<String[]> recompesaxasociado();
 

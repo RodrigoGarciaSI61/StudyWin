@@ -14,6 +14,12 @@ public interface IRecompensaRepository extends JpaRepository<Recompensa, Integer
     //US037: Como programador quiero buscar una recompensa por su nombre para gestionarla.
     public List<Recompensa> findByNombre(String nombre);
 
+    //US047: Como programador quiero listar las recompensas agotadas para gestionar el inventario.
+    @Query(value = "SELECT R.id_recompensa, R.nombre, R.stock \n" +
+            " FROM Recompensa R \n" +
+            " WHERE stock = 0;",nativeQuery = true)
+    public List<String[]> recompensasagotadas();
+
     //Como usuario quiero listar la cantidad de recompensas por asociados para gestionarlos
     @Query(value="SELECT A.id_asociado, A.empresa, A.RUC, COUNT(R.id_recompensa) AS cantidad_recompensas\n" +
             "FROM Asociado A\n" +
@@ -23,8 +29,8 @@ public interface IRecompensaRepository extends JpaRepository<Recompensa, Integer
 
     //US036: Como programador quiero listar las recompensas por tipo para gestionarlas.
     @Query(value = "SELECT R.nombre, T.Tipo\n" +
-            "FROM Recompensa R\n" +
-            "JOIN tipo_recompensa T\n" +
-            "ON R.id_tipo = T.id_tipo_recompensa;",nativeQuery = true)
+            " FROM Recompensa R\n" +
+            " JOIN tipo_recompensa T\n" +
+            " ON R.id_tipo = T.id_tipo_recompensa;",nativeQuery = true)
     public List<String[]> recompensaxtipo();
 }
