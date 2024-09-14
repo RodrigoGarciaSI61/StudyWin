@@ -60,6 +60,21 @@ public class RecompensaController {
         }).collect(Collectors.toList());
     }
 
+    @GetMapping("/agotadas")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<RecompensaDTO> obtenerstock(){
+        List<String[]> lista=rS.recompensaagotada();
+        List<RecompensaDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            RecompensaDTO dto=new RecompensaDTO();
+            dto.setId_recompensa(Integer.parseInt(columna[0]));
+            dto.setNombre(columna[1]);
+            dto.setStock(Integer.parseInt(columna[2]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
     @GetMapping("/recompensaxasociado")
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<RecompensaxasociadoDTO> recompesaxasociado(){
