@@ -53,4 +53,9 @@ public class RecompensaServiceImplement implements IRecompensaService {
     public List<String[]> recompensaxtipo() {
         return rR.recompensaxtipo();
     }
+
+    @Override
+    public List<String[]> rpopulares() {
+        return rR.recompensaspopulares();
+    }
 }

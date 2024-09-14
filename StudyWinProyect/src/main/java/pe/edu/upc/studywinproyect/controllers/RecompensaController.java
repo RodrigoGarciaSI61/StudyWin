@@ -5,11 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import pe.edu.upc.studywinproyect.dtos.RecompensaDTO;
-import pe.edu.upc.studywinproyect.dtos.RecompensaagotadaDTO;
-import pe.edu.upc.studywinproyect.dtos.RecompensaxasociadoDTO;
+import pe.edu.upc.studywinproyect.dtos.*;
 
-import pe.edu.upc.studywinproyect.dtos.RecompensaxtipoDTO;
 import pe.edu.upc.studywinproyect.entities.Recompensa;
 import pe.edu.upc.studywinproyect.entities.TipoRecompensa;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IRecompensaService;
@@ -105,6 +102,22 @@ public class RecompensaController {
             RecompensaxtipoDTO dto=new RecompensaxtipoDTO();
             dto.setNombre(columna[0]);
             dto.setTipo(columna[1]);
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+    @GetMapping("/populares")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<RecompesapopularDTO> obtenerpopulares(){
+        List<String[]> lista=rS.rpopulares();
+        List<RecompesapopularDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            RecompesapopularDTO dto=new RecompesapopularDTO();
+            dto.setNombre(columna[0]);
+            dto.setDescripcion(columna[1]);
+            dto.setPrecio_puntos(Integer.parseInt(columna[2]));
+            dto.setQuantityRecompensas(Integer.parseInt(columna[3]));
             listaDTO.add(dto);
         }
         return listaDTO;

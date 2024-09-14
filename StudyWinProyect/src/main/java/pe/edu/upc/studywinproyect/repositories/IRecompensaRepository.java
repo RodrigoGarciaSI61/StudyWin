@@ -33,4 +33,23 @@ public interface IRecompensaRepository extends JpaRepository<Recompensa, Integer
             " JOIN tipo_recompensa T\n" +
             " ON R.id_tipo = T.id_tipo_recompensa;",nativeQuery = true)
     public List<String[]> recompensaxtipo();
+    
+    //US048: Como programador quiero listar las recompensas más populares para mejorar la oferta.
+    @Query(value = "SELECT \n" +
+            "    r.nombre AS Recompensa,\n" +
+            "    r.descripcion AS Descripcion,\n" +
+            "    r.precio_puntos AS Precio_Puntos,\n" +
+            "    SUM(dc.cantidad_producto_canje) AS Total_Canjes\n" +
+            " FROM \n" +
+            "    Recompensa r\n" +
+            " JOIN \n" +
+            "    Detalle_Canje dc ON r.id_recompensa = dc.id_recompensa\n" +
+            " JOIN \n" +
+            "    Canje c ON dc.id_canje = c.id_canje\n" +
+            " GROUP BY \n" +
+            "    r.id_recompensa, r.nombre, r.descripcion, r.precio_puntos\n" +
+            " ORDER BY \n" +
+            "    Total_Canjes DESC\n" +
+            " LIMIT 10;", nativeQuery = true)
+    public List<String[]> recompensaspopulares();
 }
