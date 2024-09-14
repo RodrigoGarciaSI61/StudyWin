@@ -6,6 +6,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import pe.edu.upc.studywinproyect.dtos.RecompensaDTO;
+import pe.edu.upc.studywinproyect.dtos.RecompensaagotadaDTO;
 import pe.edu.upc.studywinproyect.dtos.RecompensaxasociadoDTO;
 
 import pe.edu.upc.studywinproyect.dtos.RecompensaxtipoDTO;
@@ -62,11 +63,11 @@ public class RecompensaController {
 
     @GetMapping("/agotadas")
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<RecompensaDTO> obtenerstock(){
+    public List<RecompensaagotadaDTO> obtenerstock(){
         List<String[]> lista=rS.recompensaagotada();
-        List<RecompensaDTO>listaDTO=new ArrayList<>();
+        List<RecompensaagotadaDTO>listaDTO=new ArrayList<>();
         for(String[] columna:lista){
-            RecompensaDTO dto=new RecompensaDTO();
+            RecompensaagotadaDTO dto=new RecompensaagotadaDTO();
             dto.setId_recompensa(Integer.parseInt(columna[0]));
             dto.setNombre(columna[1]);
             dto.setStock(Integer.parseInt(columna[2]));
