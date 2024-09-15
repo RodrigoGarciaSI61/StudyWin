@@ -38,7 +38,7 @@ public interface IRecompensaRepository extends JpaRepository<Recompensa, Integer
     @Query(value = "SELECT \n" +
             "    r.nombre AS Recompensa,\n" +
             "    r.descripcion AS Descripcion,\n" +
-            "    r.precio_puntos AS Precio_Puntos,\n" +
+            "    r.puntos AS Puntos,\n" +
             "    SUM(dc.cantidad_producto_canje) AS Total_Canjes\n" +
             " FROM \n" +
             "    Recompensa r\n" +
@@ -47,7 +47,7 @@ public interface IRecompensaRepository extends JpaRepository<Recompensa, Integer
             " JOIN \n" +
             "    Canje c ON dc.id_canje = c.id_canje\n" +
             " GROUP BY \n" +
-            "    r.id_recompensa, r.nombre, r.descripcion, r.precio_puntos\n" +
+            "    r.id_recompensa, r.nombre, r.descripcion, r.puntos\n" +
             " ORDER BY \n" +
             "    Total_Canjes DESC\n" +
             " LIMIT 10;", nativeQuery = true)

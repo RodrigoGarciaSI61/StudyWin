@@ -3,7 +3,7 @@ package pe.edu.upc.studywinproyect.dtos;
 public class RecompesapopularDTO {
     private String nombre;
     private String descripcion;
-    private int precio_puntos;
+    private int puntos;
     private int quantityRecompensas;
 
     public String getNombre() {
@@ -22,12 +22,12 @@ public class RecompesapopularDTO {
         this.descripcion = descripcion;
     }
 
-    public int getPrecio_puntos() {
-        return precio_puntos;
+    public int getPuntos() {
+        return puntos;
     }
 
-    public void setPrecio_puntos(int precio_puntos) {
-        this.precio_puntos = precio_puntos;
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
     }
 
     public int getQuantityRecompensas() {
