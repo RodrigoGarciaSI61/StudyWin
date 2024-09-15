@@ -11,11 +11,11 @@ public interface ICuestionario_academicoService {
     // Como programador quiero insertar un nuevo cuestionario academicos
     public void insert(Cuestionario_academico cuestionario_academico);
 
-    // Como programador quiero actualizar un cuestionarios academicos
+    // Como programador quiero actualizar un cuestionario academico
     public void update(Cuestionario_academico cuestionario_academico);
 
-    // Como programador quiero eliminar un cuestionarios academicos
+    // Como programador quiero eliminar un cuestionario academico
     public void delete(int id);
-    //Como usuario quiero listar los canjes por usuario para gestionarlos
+    //Como usuario quiero listar los cuestionarios por curso para gestionarlos
     public List<String[]> cuestionario_academicoxcurso();
 }
