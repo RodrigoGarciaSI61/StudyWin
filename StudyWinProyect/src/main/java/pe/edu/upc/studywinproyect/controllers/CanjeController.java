@@ -69,6 +69,7 @@ public class CanjeController {
             return m.map(x,CanjeDTO.class);
         }).collect(Collectors.toList());
     }
+    //Como programador quiero listar los canjes por usuario para gestionarlos
     @GetMapping("/canjexusuario")
     public List<CanjexUsuarioDTO> canjexusuario(){
         List<String[]> lista=cS.canjexusuario();

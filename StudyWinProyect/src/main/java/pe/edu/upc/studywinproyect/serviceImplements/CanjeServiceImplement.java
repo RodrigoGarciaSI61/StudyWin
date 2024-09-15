@@ -46,7 +46,7 @@ public class CanjeServiceImplement implements ICanjeService {
     public List<Canje> buscarDepartamento(String departamento) {
         return cR.buscarDepartamento(departamento);
     }
-
+    //Como usuario quiero listar la cantidad de canjes por usuario
     @Override
     public List<String[]> canjexusuario() {
         return cR.canjexusuario();
