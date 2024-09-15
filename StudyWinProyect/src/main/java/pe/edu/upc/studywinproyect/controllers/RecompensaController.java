@@ -116,7 +116,7 @@ public class RecompensaController {
             RecompesapopularDTO dto=new RecompesapopularDTO();
             dto.setNombre(columna[0]);
             dto.setDescripcion(columna[1]);
-            dto.setPrecio_puntos(Integer.parseInt(columna[2]));
+            dto.setPuntos(Integer.parseInt(columna[2]));
             dto.setQuantityRecompensas(Integer.parseInt(columna[3]));
             listaDTO.add(dto);
         }

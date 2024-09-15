@@ -12,8 +12,8 @@ public class Recompensa {
     private String nombre;
     @Column(name = "descripcion", nullable = false, length = 100)
     private String descripcion;
-    @Column(name = "precio_puntos", nullable = false)
-    private int precio_puntos;
+    @Column(name = "puntos", nullable = false)
+    private int puntos;
     @Column(name = "stock", nullable = false)
     private int stock;
     @ManyToOne
@@ -26,10 +26,10 @@ public class Recompensa {
     public Recompensa() {
     }
 
-    public Recompensa(int id_recompensa, String nombre, int precio_puntos, String descripcion, int stock, TipoRecompensa tipo_recompensa, pe.edu.upc.studywinproyect.entities.Asociado asociado) {
+    public Recompensa(int id_recompensa, String nombre, int puntos, String descripcion, int stock, TipoRecompensa tipo_recompensa, pe.edu.upc.studywinproyect.entities.Asociado asociado) {
         this.id_recompensa = id_recompensa;
         this.nombre = nombre;
-        this.precio_puntos = precio_puntos;
+        this.puntos = puntos;
         this.descripcion = descripcion;
         this.stock = stock;
         this.tipo_recompensa = tipo_recompensa;
@@ -60,12 +60,12 @@ public class Recompensa {
         this.descripcion = descripcion;
     }
 
-    public int getPrecio_puntos() {
-        return precio_puntos;
+    public int getPuntos() {
+        return puntos;
     }
 
-    public void setPrecio_puntos(int precio_puntos) {
-        this.precio_puntos = precio_puntos;
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
     }
 
     public int getStock() {
