@@ -18,4 +18,6 @@ public interface ICuestionario_academicoService {
     public void delete(int id);
     //Como usuario quiero listar los cuestionarios por curso para gestionarlos
     public List<String[]> cuestionario_academicoxcurso();
+    //Como programador quiero listar la Cantidad de cuestionarios resueltos por usuario
+    public List<String[]> cuestionariosresueltos();
 }

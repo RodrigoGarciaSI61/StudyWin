@@ -21,4 +21,6 @@ public interface ICanjeService {
     List<Canje> buscarDepartamento(String departamento);
     //Como usuario quiero listar los canjes por usuario para gestionarlos
     public List<String[]> canjexusuario();
+    //Como programador quiero listar la cantidad de canjes por fecha para gestionarlo
+    public List<String[]> canjexFecha();
 }

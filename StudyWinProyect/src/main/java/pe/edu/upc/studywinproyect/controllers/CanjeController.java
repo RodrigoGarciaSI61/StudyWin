@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.studywinproyect.dtos.CanjeDTO;
+import pe.edu.upc.studywinproyect.dtos.CanjeXFechaDTO;
 import pe.edu.upc.studywinproyect.dtos.CanjexUsuarioDTO;
 import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.serviceInterfaces.ICanjeService;
@@ -83,6 +84,23 @@ public class CanjeController {
                 dto.setCatidad_canjes(Integer.parseInt(columna[3]));
             }else {
                 dto.setCatidad_canjes(0);
+            }
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+    //Como programador quiero listar la cantidad de canjes por fecha para gestionarlo
+    @GetMapping("/canjexfecha")
+    public List<CanjeXFechaDTO> canjexFecha(){
+        List<String[]> lista=cS.canjexFecha();
+        List<CanjeXFechaDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            CanjeXFechaDTO dto=new CanjeXFechaDTO();
+            dto.setFecha(LocalDate.parse(columna[0]));
+            if (columna[1] != null) {
+                dto.setCantidad_canjes(Integer.parseInt(columna[1]));
+            }else {
+                dto.setCantidad_canjes(0);
             }
             listaDTO.add(dto);
         }

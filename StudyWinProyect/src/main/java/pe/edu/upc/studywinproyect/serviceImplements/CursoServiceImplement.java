@@ -45,4 +45,9 @@ public class CursoServiceImplement implements ICursoService {
     public List<Curso> buscarporCategoria(String categoria) {
         return cR.buscarporCategoria(categoria);
     }
+    //Como programador quiero listar la cantidad de cursos por categoria para gestionarlos
+    @Override
+    public List<String[]> cursosxcategoria() {
+        return cR.cursosxcategoria();
+    }
 }

@@ -16,4 +16,11 @@ public interface ICursoRepository extends JpaRepository<Curso, Integer> {
     //Como programador quiero buscar a los cursos por categoria para gestionarlos
     @Query("SELECT c FROM Curso c WHERE c.categoria LIKE %:categoria")
     public List<Curso> buscarporCategoria(String categoria);
+    //Como programador quiero listar la cantidad de cursos por categoria para gestionarlos
+    @Query(value=" SELECT categoria, COUNT(*) AS cantidad_cursos\n" +
+            " FROM Curso\n" +
+            " GROUP BY categoria\n" +
+            " ORDER BY cantidad_cursos DESC ",nativeQuery=true)
+    public List<String[]> cursosxcategoria();
     }
+

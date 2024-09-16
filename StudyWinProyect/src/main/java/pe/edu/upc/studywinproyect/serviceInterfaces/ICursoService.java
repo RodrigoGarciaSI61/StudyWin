@@ -19,5 +19,7 @@ public interface ICursoService {
     public List<Curso> buscarporNombre(String nombre);
     //Como programador quiero buscar a los cursos por categoria para gestionarlos
     public List<Curso> buscarporCategoria(String categoria);
-    //Como programador quiero listar la cantidad de cuestionarios academicos por curso para gestionarlos
+    //Como programador quiero listar la cantidad de cursos por categoria para gestionarlos
+    public List<String[]> cursosxcategoria();
+
 }

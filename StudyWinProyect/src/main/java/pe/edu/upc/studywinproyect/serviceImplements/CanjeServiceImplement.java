@@ -51,4 +51,9 @@ public class CanjeServiceImplement implements ICanjeService {
     public List<String[]> canjexusuario() {
         return cR.canjexusuario();
     }
+
+    @Override
+    public List<String[]> canjexFecha() {
+        return cR.canjesxFecha();
+    }
 }

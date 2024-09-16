@@ -37,5 +37,10 @@ public class Cuestionario_academicoServiceImplement implements ICuestionario_aca
     public List<String[]> cuestionario_academicoxcurso() {
         return cR.cuestionarioxcurso();
     }
+    //Como programador quiero listar la Cantidad de cuestionarios resueltos por usuario
+    @Override
+    public List<String[]> cuestionariosresueltos() {
+        return cR.cuestionariosresueltos();
+    }
 
 }

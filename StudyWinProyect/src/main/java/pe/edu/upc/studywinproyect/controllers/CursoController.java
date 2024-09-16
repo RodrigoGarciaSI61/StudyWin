@@ -3,9 +3,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
 import pe.edu.upc.studywinproyect.dtos.CursoDTO;
+import pe.edu.upc.studywinproyect.dtos.CursosXCategoriaDTO;
 import pe.edu.upc.studywinproyect.entities.Curso;
 import pe.edu.upc.studywinproyect.serviceInterfaces.ICursoService;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -64,5 +68,22 @@ public class CursoController {
             ModelMapper m = new ModelMapper();
             return m.map(x,CursoDTO.class);
         }).collect(Collectors.toList());
+    }
+    //Como programador quiero listar la cantidad de cursos por categoria para gestionarlos
+    @GetMapping("/cursoxcategoria")
+    public List<CursosXCategoriaDTO> cursosxcategoria(){
+        List<String[]> lista=cS.cursosxcategoria();
+        List<CursosXCategoriaDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            CursosXCategoriaDTO dto=new CursosXCategoriaDTO();
+            dto.setCategoria(columna[0]);
+            if (columna[1] != null) {
+                dto.setCantidad_cursos(Integer.parseInt(columna[1]));
+            }else {
+                dto.setCantidad_cursos(0);
+            }
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }
