@@ -1,15 +1,15 @@
 package pe.edu.upc.studywinproyect.dtos;
 
 public class RecompensaxtipoDTO {
-    private String nombre;
+    private int quantityRecompensas;
     private String tipo;
 
-    public String getNombre() {
-        return nombre;
+    public int getQuantityRecompensas() {
+        return quantityRecompensas;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setQuantityRecompensas(int quantityRecompensas) {
+        this.quantityRecompensas = quantityRecompensas;
     }
 
     public String getTipo() {

@@ -28,10 +28,11 @@ public interface IRecompensaRepository extends JpaRepository<Recompensa, Integer
     public List<String[]> recompesaxasociado();
 
     //US036: Como programador quiero listar las recompensas por tipo para gestionarlas.
-    @Query(value = "SELECT R.nombre, T.Tipo\n" +
-            " FROM Recompensa R\n" +
-            " JOIN tipo_recompensa T\n" +
-            " ON R.id_tipo = T.id_tipo_recompensa;",nativeQuery = true)
+    @Query(value = " SELECT tr.Tipo AS Tipo_de_Recompensa, COUNT(R.id_recompensa) AS Cantidad_de_Recompensas\n" +
+            " FROM recompensa r\n" +
+            " JOIN tipo_recompensa tr ON r.id_tipo = tr.id_tipo_recompensa\n" +
+            " GROUP BY TR.Tipo\n" +
+            " ORDER BY TR.Tipo;",nativeQuery = true)
     public List<String[]> recompensaxtipo();
     
     //US048: Como programador quiero listar las recompensas más populares para mejorar la oferta.

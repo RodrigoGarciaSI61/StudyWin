@@ -23,7 +23,7 @@ public interface IRecompensaService {
     //Como usuario quiero listar la cantidad de recompensas por asociados para gestionarlos
     public List<String[]> recompesaxasociado();
 
-    //US036: Como programador quiero listar las recompensas por tipo para gestionarlas.
+    //US036: Como programador quiero listar la cantidad de recompensas por tipo para gestionarlas.
     public List<String[]> recompensaxtipo();
 
     //US048: Como programador quiero listar las recompensas más populares para mejorar la oferta.
