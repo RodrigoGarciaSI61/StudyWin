@@ -100,8 +100,8 @@ public class RecompensaController {
         List<RecompensaxtipoDTO>listaDTO=new ArrayList<>();
         for(String[] columna:lista){
             RecompensaxtipoDTO dto=new RecompensaxtipoDTO();
-            dto.setNombre(columna[0]);
-            dto.setTipo(columna[1]);
+            dto.setTipo(columna[0]);
+            dto.setQuantityRecompensas(Integer.parseInt(columna[1]));
             listaDTO.add(dto);
         }
         return listaDTO;
