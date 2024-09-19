@@ -18,4 +18,6 @@ public interface IPreguntaService {
     public void delete(int id);
     //Como usuario quiero listar las preguntas por cuestionarios academics para gestionarlos
     public List<String[]> preguntaxcuestionario();
+    //Como programador, quiero listar las preguntas con la mayor cantidad de puntos en cada cuestionario académico para identificar las preguntas más valiosas en cada cuestionario.
+    public List<String[]> preguntasmayorcantpuntos();
 }

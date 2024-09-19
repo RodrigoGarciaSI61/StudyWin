@@ -38,4 +38,9 @@ public class PreguntaServiceImplement implements IPreguntaService {
     public List<String[]> preguntaxcuestionario() {
         return pR.preguntasxcuestionario();
     }
+    //Como programador, quiero listar las preguntas con la mayor cantidad de puntos en cada cuestionario académico para identificar las preguntas más valiosas en cada cuestionario.
+    @Override
+    public List<String[]> preguntasmayorcantpuntos() {
+        return pR.preguntasmayorcantpuntos();
+    }
 }

@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.studywinproyect.dtos.PreguntasmayorpuntajeDTO;
 import pe.edu.upc.studywinproyect.dtos.PreguntasxCuestionarioDTO;
 import pe.edu.upc.studywinproyect.dtos.PreguntaDTO;
 import pe.edu.upc.studywinproyect.entities.Pregunta;
@@ -61,6 +62,22 @@ public class PreguntaController {
             }else {
                 dto.setCantidad_preguntas(0);
             }
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+    @GetMapping("/preguntamayorpuntxcuestionario")
+    public List<PreguntasmayorpuntajeDTO> preguntasmayorpuntaje(){
+        List<String[]> lista=pS.preguntasmayorcantpuntos();
+        List<PreguntasmayorpuntajeDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            PreguntasmayorpuntajeDTO dto=new PreguntasmayorpuntajeDTO();
+            dto.setIdPregunta(Integer.parseInt(columna[0]));
+            dto.setPregunta(columna[1]);
+            dto.setPuntos(Integer.parseInt(columna[2]));
+            dto.setRespuesta(columna[3]);
+            dto.setId_cuestionario(Integer.parseInt(columna[4]));
+            dto.setNombrecuestionario(columna[5]);
             listaDTO.add(dto);
         }
         return listaDTO;
