@@ -22,10 +22,10 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public void insert(Usuario usuario) {
         uR.save(usuario);
     }
-    //Como programador quiero listar por id a los usuarios
+    //como programador quiero listar la cantidad de usuarios inhabilitados y la cantidad de usuarios habilitados para poder gestionarlos,
     @Override
-    public Usuario listID(Long id) {
-        return uR.findById(id).orElse(new Usuario());
+    public List<String[]> enabledUsers() {
+        return uR.EnabledUsers();
     }
     //Como progrmador quiero modificar a los usuarios para gestionarlos
     @Override
@@ -47,9 +47,10 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public List<Usuario> buscarporDni(String dni) {
         return uR.buscarporDni(dni);
     }
-
+    //Como programador quiero listar la cantidad de usuarios por institución educativa para gestionarlo
     @Override
-    public List<Usuario> buscarporIE(String IE) {
-        return uR.buscarporIE(IE);
+    public List<String[]> UsuariosporIE() {
+        return uR.UsuariosxIE();
     }
+
 }

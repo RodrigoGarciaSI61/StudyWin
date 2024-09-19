@@ -9,8 +9,8 @@ public interface IUsuarioService {
     public List<Usuario> list();
     //Como programador quiero guardar a los usuarios para gestionarlos
     public void insert(Usuario usuario);
-    //Como programador quiero listar por id a los usuarios
-    public Usuario listID(Long id);
+    //como programador quiero listar la cantidad de usuarios inhabilitados y la cantidad de usuarios habilitados para poder gestionarlos,
+    public List<String[]> enabledUsers();
     //Como progrmador quiero modificar a los usuarios para gestionarlos
     public void update(Usuario usuario);
     //Como programador quiero eliminar a los usuarios para gestionarlos
@@ -19,7 +19,7 @@ public interface IUsuarioService {
     public List<Usuario> buscarporNombre(String nombre, String apellidos);
     //Como usuario quiero buscar por DNI a los usuarios para gestionarlo
     public List<Usuario> buscarporDni(String dni);
-    //Como usuario quiero buscar por institucion educativa a los usuarios para gestionarlo
-    public List<Usuario> buscarporIE(String IE);
-    //Como programador quiero listar la cantidad de cursos por usuario para gestionarlos
+    //Como programador quiero listar la cantidad de usuarios por institución educativa para gestionarlo
+    public List<String[]> UsuariosporIE();
+
 }

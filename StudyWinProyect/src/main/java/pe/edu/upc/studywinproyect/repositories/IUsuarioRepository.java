@@ -13,7 +13,6 @@ import java.util.List;
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     public Usuario findOneByemail(String email);
-
     //Como usuario quiero buscar por nombre a los usuarios para gestionarlo
     @Query("SELECT u FROM Usuario u WHERE u.nombres = :nombres OR u.apellidos = :apellidos")
     List<Usuario> buscar(@Param("nombres") String nombres, @Param("apellidos") String apellidos);
@@ -25,7 +24,19 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     //Como usuario quiero buscar por DNI a los usuarios para gestionarlo
     @Query("SELECT u FROM Usuario u WHERE u.dni LIKE %:dni")
     public List<Usuario> buscarporDni(String dni);
-    //Como usuario quiero buscar por institucion educativa a los usuarios para gestionarlo
-    @Query("SELECT u FROM Usuario u WHERE u.institucion_educativa LIKE %:institucion_educativa")
-    public List<Usuario> buscarporIE(String institucion_educativa);
+    //Como programador quiero listar la cantidad de usuarios por institución educativa para gestionarlo
+    @Query(value=" SELECT institucion_educativa, COUNT(*) AS cantidad_usuarios\n" +
+            " FROM usuario\n" +
+            " GROUP BY institucion_educativa;",nativeQuery = true)
+    public List<String[]> UsuariosxIE();
+    //como programador quiero listar la cantidad de usuarios inhabilitados y la cantidad de usuarios habilitados para poder gestionarlos,
+    @Query(value=" SELECT \n" +
+            "    CASE \n" +
+            "        WHEN enabled = TRUE THEN 'Habilitados'\n" +
+            "        ELSE 'Inhabilitados'\n" +
+            "    END AS estado_usuario,\n" +
+            "    COUNT(*) AS cantidad_usuarios\n" +
+            " FROM usuario\n" +
+            " GROUP BY enabled;",nativeQuery=true)
+    public List<String[]> EnabledUsers();
 }

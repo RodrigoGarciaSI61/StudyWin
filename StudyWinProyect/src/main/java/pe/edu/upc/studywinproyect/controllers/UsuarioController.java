@@ -4,10 +4,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.studywinproyect.dtos.EnabledUsersDTO;
 import pe.edu.upc.studywinproyect.dtos.UsuarioDTO;
+import pe.edu.upc.studywinproyect.dtos.UsuarioporIEDTO;
 import pe.edu.upc.studywinproyect.entities.Usuario;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IUsuarioService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,12 +39,22 @@ public class UsuarioController {
         u.setContrasena(encodedPassword);
         uS.insert(u);
     }
-    //Como programador quiero listar por id a los usuarios
-    @GetMapping("/{id}")
-    public UsuarioDTO listarporID(@PathVariable("id") Long id){
-        ModelMapper m=new ModelMapper();
-        UsuarioDTO dto=m.map(uS.listID(id),UsuarioDTO.class);
-        return dto;
+    //como programador quiero listar la cantidad de usuarios inhabilitados y la cantidad de usuarios habilitados para poder gestionarlos,
+    @GetMapping("/enabledUsers")
+    public List<EnabledUsersDTO> enabledUsers(){
+        List<String[]> lista=uS.enabledUsers();
+        List<EnabledUsersDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            EnabledUsersDTO dto=new EnabledUsersDTO();
+            dto.setEstado_usuario(columna[0]);
+            if(columna[1]!=null){
+                dto.setCantUsuarios(Integer.parseInt(columna[1]));
+            }else{
+                dto.setCantUsuarios(0);
+            }
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
     //Como progrmador quiero modificar a los usuarios para gestionarlos
     @PutMapping
@@ -71,12 +84,21 @@ public class UsuarioController {
             return m.map(x,UsuarioDTO.class);
         }).collect(Collectors.toList());
     }
-    //Como usuario quiero buscar por institucion educativa a los usuarios para gestionarlo
-    @GetMapping("/busquedabyIE")
-    public List<UsuarioDTO> buscarporIE(@RequestParam String IE){
-        return uS.buscarporIE(IE).stream().map(x->{
-            ModelMapper m = new ModelMapper();
-            return m.map(x,UsuarioDTO.class);
-        }).collect(Collectors.toList());
+    //Como programador quiero listar la cantidad de usuarios por institución educativa para gestionarlo    @GetMapping("/usuariosxIE")
+    @GetMapping("/usuariosxIE")
+    public List<UsuarioporIEDTO> usuariosxIE(){
+        List<String[]> lista=uS.UsuariosporIE();
+        List<UsuarioporIEDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            UsuarioporIEDTO dto=new UsuarioporIEDTO();
+            dto.setNombreIE(columna[0]);
+            if (columna[1] != null) {
+                dto.setCantidad_usuarios(Integer.parseInt(columna[1]));
+            }else{
+                dto.setCantidad_usuarios(0);
+            }
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }
