@@ -39,7 +39,7 @@ public class CanjeServiceImplement implements ICanjeService {
     //Como usuario quiero buscar por fecha a los canjes para gestionarlos
     @Override
     public List<Canje> buscarFecha(LocalDate fecha) {
-        return cR.findByPurchaseDateDevice(fecha);
+        return cR.findByfecha(fecha);
     }
     //Como usuario quiero buscar por departamento a los canjes para gestionarlos
     @Override

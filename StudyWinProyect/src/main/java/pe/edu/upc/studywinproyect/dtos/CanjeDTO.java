@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class CanjeDTO {
 
     private int id_canje;
-    private LocalDate purchaseDateDevice;
+    private LocalDate fecha;
     private String departamento;
     public String distrito;
     private Usuario usuario;
@@ -46,10 +46,10 @@ public class CanjeDTO {
     }
 
     public LocalDate getPurchaseDateDevice() {
-        return purchaseDateDevice;
+        return fecha;
     }
 
-    public void setPurchaseDateDevice(LocalDate purchaseDateDevice) {
-        this.purchaseDateDevice = purchaseDateDevice;
+    public void setPurchaseDateDevice(LocalDate fecha) {
+        this.fecha = fecha;
     }
 }

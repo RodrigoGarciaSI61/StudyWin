@@ -14,8 +14,8 @@ public class Canje implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_canje;
-    @Column(name="purchaseDateDevice",nullable = false)
-    private LocalDate purchaseDateDevice;
+    @Column(name="fecha",nullable = false)
+    private LocalDate fecha;
     @Column(name="departamento",length = 100,nullable = false)
     private String departamento;
     @Column(name="distrito",length = 100,nullable = false)
@@ -27,9 +27,9 @@ public class Canje implements Serializable {
     public Canje() {
     }
 
-    public Canje(int id_canje, LocalDate purchaseDateDevice, String departamento, String distrito, Usuario usuario) {
+    public Canje(int id_canje, LocalDate fecha, String departamento, String distrito, Usuario usuario) {
         this.id_canje = id_canje;
-        this.purchaseDateDevice = purchaseDateDevice;
+        this.fecha = fecha;
         this.departamento = departamento;
         this.distrito = distrito;
         this.usuario = usuario;
@@ -44,11 +44,11 @@ public class Canje implements Serializable {
     }
 
     public LocalDate getPurchaseDateDevice() {
-        return purchaseDateDevice;
+        return fecha;
     }
 
-    public void setPurchaseDateDevice(LocalDate purchaseDateDevice) {
-        this.purchaseDateDevice = purchaseDateDevice;
+    public void setPurchaseDateDevice(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
     public String getDepartamento() {
