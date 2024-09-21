@@ -14,4 +14,8 @@ public interface IUsuariosXCursoService {
     public void update(UsuariosXCurso usuariosXCurso);
     // Como programador quiero eliminar las relaciones UsuariosXCurso para gestionarlas
     public void delete(Long id);
+    //Como programador, quiero listar los usuarios que no están inscritos en ningún curso para identificar aquellos que necesitan ser asignados a uno.
+    public List<String[]> usuariossincurso();
+    //Como programador, quiero listar la cantidad de usuarios inscritos por curso para poder analizar la participación.
+    public List<String[]>  cursoscantusers();
 }

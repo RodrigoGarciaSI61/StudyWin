@@ -37,5 +37,15 @@ public class UsuariosXCursoServiceImplement implements IUsuariosXCursoService {
     public void delete(Long id) {
         uxcR.deleteById(id);
     }
+
+    @Override
+    public List<String[]> usuariossincurso() {
+        return uxcR.usuariossincurso();
+    }
+
+    @Override
+    public List<String[]> cursoscantusers() {
+        return uxcR.cursoscantusers();
+    }
 }
 
