@@ -22,4 +22,8 @@ public interface IDetalleXCanjeService {
 
     // Como programador quiero buscar detalles de canje por ID de recompensa
     public List<DetalleXCanje> findByRecompensaId(int idRecompensa);
+    //Como programador, quiero listar la cantidad total de productos canjeados por recompensa, junto con el nombre de la recompensa, para gestionar el inventario.
+    public List<String[]> productoscanjeados();
+    //Como programador, quiero obtener la cantidad total de productos canjeados por departamento para poder analizar el comportamiento de consumo en diferentes regiones geográficas.
+    public List<String[]> cantcanjeadosxdepartamento();
 }

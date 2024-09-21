@@ -20,12 +20,13 @@ public interface ICanjeRepository extends JpaRepository<Canje, Integer> {
             "LEFT JOIN Canje C ON U.id_usuario = C.id_usuario\n" +
             "GROUP BY U.id_usuario, U.nombres, U.apellidos;",nativeQuery = true)
     public List<String[]> canjexusuario();
-    ////Como programador quiero listar la cantidad de canjes por fecha para gestionarlo
+    //Como programador quiero listar la cantidad de canjes por fecha para gestionarlo
     @Query(value=" SELECT fecha, COUNT(*) AS cantidad_canjes\n" +
             " FROM Canje\n" +
             " GROUP BY fecha\n" +
             " ORDER BY fecha;",nativeQuery = true)
     public List<String[]> canjesxFecha();
+
 
 
 }

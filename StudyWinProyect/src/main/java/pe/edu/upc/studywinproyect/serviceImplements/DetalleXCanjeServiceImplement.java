@@ -42,4 +42,14 @@ public class DetalleXCanjeServiceImplement implements IDetalleXCanjeService {
     public List<DetalleXCanje> findByRecompensaId(int idRecompensa) {
         return detalleXCanjeRepository.findByRecompensaId(idRecompensa);
     }
+    //Como programador, quiero listar la cantidad total de productos canjeados por recompensa, junto con el nombre de la recompensa, para gestionar el inventario.
+    @Override
+    public List<String[]> productoscanjeados() {
+        return detalleXCanjeRepository.productoscanjeados();
+    }
+    //Como programador, quiero obtener la cantidad total de productos canjeados por departamento para poder analizar el comportamiento de consumo en diferentes regiones geográficas.
+    @Override
+    public List<String[]> cantcanjeadosxdepartamento() {
+        return detalleXCanjeRepository.cantcanjeadosxdepartamento();
+    }
 }
