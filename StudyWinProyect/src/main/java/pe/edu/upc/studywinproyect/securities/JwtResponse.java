@@ -1,5 +1,6 @@
 package pe.edu.upc.studywinproyect.securities;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /*
@@ -13,6 +14,7 @@ clase 5
 @Getter*/
 public class JwtResponse implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -8091879091924046844L;
     private final String jwttoken;
 

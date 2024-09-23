@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import pe.edu.upc.studywinproyect.entities.Recompensa;
-import pe.edu.upc.studywinproyect.entities.TipoRecompensa;
 
 import java.util.List;
 

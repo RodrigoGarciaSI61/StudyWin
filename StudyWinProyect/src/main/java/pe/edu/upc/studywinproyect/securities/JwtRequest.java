@@ -1,5 +1,6 @@
 package pe.edu.upc.studywinproyect.securities;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /*
@@ -14,6 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor*/
 public class JwtRequest implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 5926468583005150707L;
 	private String username;
 	private String password;

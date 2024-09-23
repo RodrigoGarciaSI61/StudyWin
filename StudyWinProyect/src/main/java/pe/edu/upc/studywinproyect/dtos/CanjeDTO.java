@@ -10,7 +10,7 @@ public class CanjeDTO {
     private int id_canje;
     private LocalDate fecha;
     private String departamento;
-    public String distrito;
+    private String distrito;
     private Usuario usuario;
 
     public int getId_canje() {

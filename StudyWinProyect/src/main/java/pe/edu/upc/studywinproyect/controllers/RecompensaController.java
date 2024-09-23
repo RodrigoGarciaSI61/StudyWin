@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.studywinproyect.dtos.*;
 
 import pe.edu.upc.studywinproyect.entities.Recompensa;
-import pe.edu.upc.studywinproyect.entities.TipoRecompensa;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IRecompensaService;
 
 import java.util.ArrayList;

@@ -6,7 +6,6 @@ import pe.edu.upc.studywinproyect.dtos.CantUsersinCursoDTO;
 import pe.edu.upc.studywinproyect.dtos.UsuariosSinCursoDTO;
 import pe.edu.upc.studywinproyect.entities.UsuariosXCurso;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IUsuariosXCursoService;
-
 import java.util.ArrayList;
 import java.util.List;
 

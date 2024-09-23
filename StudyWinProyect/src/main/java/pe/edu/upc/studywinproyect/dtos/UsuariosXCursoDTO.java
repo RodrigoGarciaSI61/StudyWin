@@ -4,11 +4,6 @@ public class UsuariosXCursoDTO {
     private Long id_usuariosxcurso;
     private Long id_usuario;
     private int id_curso;
-
-    // Constructor
-    public UsuariosXCursoDTO() {
-    }
-
     // Getters y setters
     public Long getId_usuariosxcurso() {
         return id_usuariosxcurso;

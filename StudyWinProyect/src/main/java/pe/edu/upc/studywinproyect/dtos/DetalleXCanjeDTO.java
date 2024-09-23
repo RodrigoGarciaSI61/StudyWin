@@ -5,18 +5,7 @@ public class DetalleXCanjeDTO {
     private int id_recompensa;
     private int id_canje;
     private int cantidadProductoCanje;
-
-    public DetalleXCanjeDTO() {
-    }
-
-    public DetalleXCanjeDTO(int id_detalle_canje, int id_recompensa, int id_canje, int cantidadProductoCanje) {
-        this.id_detalle_canje = id_detalle_canje;
-        this.id_recompensa = id_recompensa;
-        this.id_canje = id_canje;
-        this.cantidadProductoCanje = cantidadProductoCanje;
-    }
-
-    public int getId_detalle_canje() {
+        public int getId_detalle_canje() {
         return id_detalle_canje;
     }
 
