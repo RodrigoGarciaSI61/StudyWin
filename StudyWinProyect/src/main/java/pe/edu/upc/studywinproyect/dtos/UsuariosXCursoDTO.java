@@ -1,10 +1,15 @@
 package pe.edu.upc.studywinproyect.dtos;
 
+import pe.edu.upc.studywinproyect.entities.Curso;
+import pe.edu.upc.studywinproyect.entities.Usuario;
+
 public class UsuariosXCursoDTO {
     private Long id_usuariosxcurso;
-    private Long id_usuario;
-    private int id_curso;
+    private Curso curso;
+    private Usuario usuario;
+
     // Getters y setters
+
     public Long getId_usuariosxcurso() {
         return id_usuariosxcurso;
     }
@@ -13,19 +18,19 @@ public class UsuariosXCursoDTO {
         this.id_usuariosxcurso = id_usuariosxcurso;
     }
 
-    public Long getId_usuario() {
-        return id_usuario;
+    public Curso getCurso() {
+        return curso;
     }
 
-    public void setId_usuario(Long id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 
-    public int getId_curso() {
-        return id_curso;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setId_curso(int id_curso) {
-        this.id_curso = id_curso;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

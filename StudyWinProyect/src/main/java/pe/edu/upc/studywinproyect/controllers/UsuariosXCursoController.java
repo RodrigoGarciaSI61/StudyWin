@@ -1,13 +1,19 @@
 package pe.edu.upc.studywinproyect.controllers;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.studywinproyect.dtos.CanjeDTO;
 import pe.edu.upc.studywinproyect.dtos.CantUsersinCursoDTO;
 import pe.edu.upc.studywinproyect.dtos.UsuariosSinCursoDTO;
+import pe.edu.upc.studywinproyect.dtos.UsuariosXCursoDTO;
+import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.entities.UsuariosXCurso;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IUsuariosXCursoService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/usuariosxcurso")
@@ -15,14 +21,19 @@ public class UsuariosXCursoController {
     @Autowired
     private IUsuariosXCursoService uxcService;
 
-    @GetMapping("/list")
-    public List<UsuariosXCurso> list() {
-        return uxcService.list();
+    @GetMapping()
+    public List<UsuariosXCursoDTO> list() {
+        return uxcService.list().stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x,UsuariosXCursoDTO.class);
+        }).collect(Collectors.toList());
     }
 
     @PostMapping("/insert")
-    public void insert(@RequestBody UsuariosXCurso usuariosXCurso) {
-        uxcService.insert(usuariosXCurso);
+    public void insert(@RequestBody UsuariosXCurso dto) {
+        ModelMapper m=new ModelMapper();
+        UsuariosXCurso u=m.map(dto, UsuariosXCurso.class);
+        uxcService.insert(u);
     }
 
     @GetMapping("/list/{id}")

@@ -62,19 +62,17 @@ public class WebSecurityConfig {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers(
-                                antMatcher("/login"),
-                                antMatcher("/v3/api-docs/**"),
-                                antMatcher("/swagger-ui/**"),
-                                antMatcher("/swagger-ui.html")
-                        ).permitAll()
-                        .anyRequest().authenticated()
+                        // Permitir todas las solicitudes sin autenticación
+                        .anyRequest().permitAll()
                 )
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(AbstractHttpConfigurer::disable)
                 .exceptionHandling(e -> e.authenticationEntryPoint(jwtAuthenticationEntryPoint))
                 .sessionManagement(Customizer.withDefaults());
-        httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
+        // Deshabilitar el filtro JWT
+        // httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
         return httpSecurity.build();
     }
 }

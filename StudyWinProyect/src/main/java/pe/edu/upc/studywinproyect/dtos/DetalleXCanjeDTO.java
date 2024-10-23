@@ -1,11 +1,15 @@
 package pe.edu.upc.studywinproyect.dtos;
 
+import pe.edu.upc.studywinproyect.entities.Canje;
+import pe.edu.upc.studywinproyect.entities.Recompensa;
+
 public class DetalleXCanjeDTO {
     private int id_detalle_canje;
-    private int id_recompensa;
-    private int id_canje;
+    private Recompensa id_recompensa;
+    private Canje id_canje;
     private int cantidadProductoCanje;
-        public int getId_detalle_canje() {
+
+    public int getId_detalle_canje() {
         return id_detalle_canje;
     }
 
@@ -13,19 +17,19 @@ public class DetalleXCanjeDTO {
         this.id_detalle_canje = id_detalle_canje;
     }
 
-    public int getId_recompensa() {
+    public Recompensa getId_recompensa() {
         return id_recompensa;
     }
 
-    public void setId_recompensa(int id_recompensa) {
+    public void setId_recompensa(Recompensa id_recompensa) {
         this.id_recompensa = id_recompensa;
     }
 
-    public int getId_canje() {
+    public Canje getId_canje() {
         return id_canje;
     }
 
-    public void setId_canje(int id_canje) {
+    public void setId_canje(Canje id_canje) {
         this.id_canje = id_canje;
     }
 

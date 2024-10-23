@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/canje")
-@PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class CanjeController {
     @Autowired
     private ICanjeService cS;

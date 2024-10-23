@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/asociado")
-@PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class AsociadoController {
     @Autowired
     private IAsociadoService aS;

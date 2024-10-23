@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/cuestionarios")
-@PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class Cuestionario_academicoController {
     @Autowired
     private ICuestionario_academicoService cS;

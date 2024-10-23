@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/curso")
-@PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class CursoController {
     @Autowired
     private ICursoService cS;
