@@ -14,15 +14,26 @@ public class Curso {
     private String categoria;
     @Column(name = "descripcion",nullable = false,length = 40)
     private String descripcion;
+    @Column(name = "imagen",nullable = false)
+    private String imagen;
 
     public Curso() {
     }
 
-    public Curso(int id_curso, String nombre, String categoria, String descripcion) {
+    public Curso(int id_curso, String nombre, String categoria, String descripcion, String imagen) {
         this.id_curso = id_curso;
         this.nombre = nombre;
         this.categoria = categoria;
         this.descripcion = descripcion;
+        this.imagen = imagen;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public int getId_curso() {
