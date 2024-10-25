@@ -12,6 +12,15 @@ public class RecompensaDTO {
     private int stock;
     private TipoRecompensa tipoRecompensa;
     private Asociado Asociado;
+    private String imagen;
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
     public int getId_recompensa() {
         return id_recompensa;

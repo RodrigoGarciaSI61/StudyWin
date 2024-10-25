@@ -16,6 +16,9 @@ public class Recompensa {
     private int puntos;
     @Column(name = "stock", nullable = false)
     private int stock;
+    @Column(name = "imagen",nullable = false)
+    private String imagen;
+
     @ManyToOne
     @JoinColumn(name = "id_tipo")
     private TipoRecompensa tipo_recompensa;
@@ -26,7 +29,7 @@ public class Recompensa {
     public Recompensa() {
     }
 
-    public Recompensa(int id_recompensa, String nombre, int puntos, String descripcion, int stock, TipoRecompensa tipo_recompensa, pe.edu.upc.studywinproyect.entities.Asociado asociado) {
+    public Recompensa(int id_recompensa, String nombre, int puntos, String descripcion, int stock, TipoRecompensa tipo_recompensa, pe.edu.upc.studywinproyect.entities.Asociado asociado, String imagen) {
         this.id_recompensa = id_recompensa;
         this.nombre = nombre;
         this.puntos = puntos;
@@ -34,6 +37,15 @@ public class Recompensa {
         this.stock = stock;
         this.tipo_recompensa = tipo_recompensa;
         Asociado = asociado;
+        this.imagen = imagen;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public int getId_recompensa() {
