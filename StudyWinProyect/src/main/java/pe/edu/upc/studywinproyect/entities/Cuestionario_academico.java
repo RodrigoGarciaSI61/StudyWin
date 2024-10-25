@@ -18,6 +18,8 @@ public class Cuestionario_academico implements Serializable {
     private String descripcion;
     @Column(name="tiempo_limite",nullable = false )
     private int tiempo_limite;
+    @Column(name="imagen",nullable = false )
+    private String imagen;
     @ManyToOne
     @JoinColumn(name = "id_curso")
     private Curso curso;
@@ -25,12 +27,21 @@ public class Cuestionario_academico implements Serializable {
     public Cuestionario_academico() {
     }
 
-    public Cuestionario_academico(int id_cuestionario, String nombres, String descripcion, int tiempo_limite, Curso curso) {
+    public Cuestionario_academico(int id_cuestionario, String nombres, String descripcion, int tiempo_limite, Curso curso, String imagen) {
         this.id_cuestionario = id_cuestionario;
         this.nombres = nombres;
         this.descripcion = descripcion;
         this.tiempo_limite = tiempo_limite;
         this.curso = curso;
+        this.imagen = imagen;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public int getId_cuestionario() {

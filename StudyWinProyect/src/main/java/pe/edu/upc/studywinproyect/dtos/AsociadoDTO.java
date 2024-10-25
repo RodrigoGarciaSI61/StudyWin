@@ -7,6 +7,15 @@ public class AsociadoDTO {
     private LocalDate fecha_inicio;
     private LocalDate fecha_fin;
     private String RUC;
+    private String imagen;
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
     public String getRUC() {
         return RUC;

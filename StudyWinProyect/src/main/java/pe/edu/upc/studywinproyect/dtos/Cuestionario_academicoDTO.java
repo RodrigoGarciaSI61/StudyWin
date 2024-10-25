@@ -8,6 +8,15 @@ public class Cuestionario_academicoDTO {
     private String descripcion;
     private int tiempo_limite;
     private Curso curso;
+    private String imagen;
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
     public int getId_cuestionario() {
         return id_cuestionario;

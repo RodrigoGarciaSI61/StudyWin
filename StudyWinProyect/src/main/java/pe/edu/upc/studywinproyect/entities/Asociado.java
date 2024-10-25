@@ -22,17 +22,28 @@ public class Asociado implements Serializable {
     private LocalDate fecha_fin;
     @Column(name = "ruc", nullable = false, length = 10)
     private String RUC;
+    @Column(name = "imagen",nullable = false)
+    private String imagen;
 
     public Asociado() {
     }
 
-    public Asociado(int id_asociado, String empresa, String descripcion, LocalDate fecha_inicio, LocalDate fecha_fin, String RUC) {
+    public Asociado(int id_asociado, String empresa, String descripcion, LocalDate fecha_inicio, LocalDate fecha_fin, String RUC, String imagen) {
         this.id_asociado = id_asociado;
         this.empresa = empresa;
         this.descripcion = descripcion;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
         this.RUC = RUC;
+        this.imagen = imagen;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public int getId_asociado() {
