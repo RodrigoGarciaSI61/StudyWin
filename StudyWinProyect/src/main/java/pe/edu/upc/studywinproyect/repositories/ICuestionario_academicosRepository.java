@@ -2,6 +2,7 @@ package pe.edu.upc.studywinproyect.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import pe.edu.upc.studywinproyect.entities.Cuestionario_academico;
 
 import java.util.List;
@@ -23,4 +24,8 @@ public interface ICuestionario_academicosRepository extends JpaRepository<Cuesti
             " GROUP BY u.id_usuario, u.nombres, u.apellidos\n" +
             " ORDER BY cuestionarios_resueltos DESC ;",nativeQuery = true)
     public List<String[]> cuestionariosresueltos();
+
+    //Como programador quiero listar los Cuestionarios academicos por cada nombre de curso para gestionarlos
+    @Query("SELECT ca.nombres, ca.descripcion, ca.tiempo_limite, ca.imagen FROM Cuestionario_academico ca JOIN ca.curso c ON ca.curso.id_curso = c.id_curso WHERE c.nombre = :nombreCurso")
+    public List<String[]> findSpecificFieldsByNombreCurso(@Param("nombreCurso") String nombreCurso);
 }

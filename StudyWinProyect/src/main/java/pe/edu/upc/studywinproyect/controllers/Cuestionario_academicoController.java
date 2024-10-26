@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 public class Cuestionario_academicoController {
     @Autowired
     private ICuestionario_academicoService cS;
+
     //Como programador quiero listar los cuestionarios academicos para gestionarlos
     @GetMapping
     public List<Cuestionario_academicoDTO> listar() {
@@ -27,6 +28,7 @@ public class Cuestionario_academicoController {
             return m.map(x,Cuestionario_academicoDTO.class);
         }).collect(Collectors.toList());
     }
+
     //Como programador quiero guardar a los cuestionarios academicos para gestionarlos
     @PostMapping
     public void registrar(@RequestBody Cuestionario_academicoDTO dto) {
@@ -34,6 +36,7 @@ public class Cuestionario_academicoController {
         Cuestionario_academico u=m.map(dto, Cuestionario_academico.class);
         cS.insert(u);
     }
+
     //Como progrmador quiero modificar a los cuestionarios academicos para gestionarlos
     @PutMapping
     public void modificar(@RequestBody Cuestionario_academicoDTO dto){
@@ -41,11 +44,13 @@ public class Cuestionario_academicoController {
         Cuestionario_academico ro=m.map(dto,Cuestionario_academico.class);
         cS.update(ro);
     }
+
     //Como programador quiero eliminar a los cuestionarios academicos para gestionarlos
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         cS.delete(id);
     }
+
     //Como programador quiero listar los canjes por usuario para gestionarlos
     @GetMapping("/cuestionarioxcurso")
     public List<CuestionarioXCursoDTO> cuestionarioxcurso(){
@@ -65,6 +70,7 @@ public class Cuestionario_academicoController {
         }
         return listaDTO;
     }
+
     //Como programador quiero listar la Cantidad de cuestionarios resueltos por usuario
     @GetMapping("/resueltos")
     public List<CuestionariosresueltosDTO> cuestionarioresuelto(){
@@ -80,6 +86,22 @@ public class Cuestionario_academicoController {
             }else {
                 dto.setCuestionarios_resueltos(0);
             }
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+    //Como programador quiero listar los Cuestionarios academicos por cada nombre de curso para gestionarlos
+    @GetMapping("/cuestionarioxnombrecurso")
+    public List<Cuestionario_academicoDTO> obtenerCuestionariosPorCurso(@RequestParam String nombreCurso) {
+        List<String[]> lista = cS.findSpecificFieldsByNombreCurso(nombreCurso);
+        List<Cuestionario_academicoDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            Cuestionario_academicoDTO dto = new Cuestionario_academicoDTO();
+            dto.setNombres(columna[0]);
+            dto.setDescripcion(columna[1]);
+            dto.setTiempo_limite(Integer.parseInt(columna[2]));
+            dto.setImagen(columna[3]);
             listaDTO.add(dto);
         }
         return listaDTO;

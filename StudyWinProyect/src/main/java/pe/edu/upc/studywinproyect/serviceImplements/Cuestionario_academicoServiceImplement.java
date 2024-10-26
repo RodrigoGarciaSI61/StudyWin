@@ -43,4 +43,9 @@ public class Cuestionario_academicoServiceImplement implements ICuestionario_aca
         return cR.cuestionariosresueltos();
     }
 
+    //Como programador quiero listar los Cuestionarios academicos por cada nombre de curso para gestionarlos
+    @Override
+    public List<String[]> findSpecificFieldsByNombreCurso(String nombreCurso) {
+        return cR.findSpecificFieldsByNombreCurso(nombreCurso);
+    }
 }
