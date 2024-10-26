@@ -21,20 +21,12 @@ public class CanjeDTO {
         this.id_canje = id_canje;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getDistrito() {
-        return distrito;
-    }
-
-    public void setDistrito(String distrito) {
-        this.distrito = distrito;
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
     public String getDepartamento() {
@@ -45,11 +37,19 @@ public class CanjeDTO {
         this.departamento = departamento;
     }
 
-    public LocalDate getPurchaseDateDevice() {
-        return fecha;
+    public String getDistrito() {
+        return distrito;
     }
 
-    public void setPurchaseDateDevice(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

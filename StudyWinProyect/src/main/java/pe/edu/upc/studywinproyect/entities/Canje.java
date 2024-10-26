@@ -43,11 +43,11 @@ public class Canje implements Serializable {
         this.id_canje = id_canje;
     }
 
-    public LocalDate getPurchaseDateDevice() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setPurchaseDateDevice(LocalDate fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
