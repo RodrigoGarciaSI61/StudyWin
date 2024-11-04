@@ -4,11 +4,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.studywinproyect.dtos.CanjeDTO;
-import pe.edu.upc.studywinproyect.dtos.CantUsersinCursoDTO;
-import pe.edu.upc.studywinproyect.dtos.UsuariosSinCursoDTO;
-import pe.edu.upc.studywinproyect.dtos.UsuariosXCursoDTO;
+import pe.edu.upc.studywinproyect.dtos.*;
 import pe.edu.upc.studywinproyect.entities.Canje;
+import pe.edu.upc.studywinproyect.entities.Usuario;
 import pe.edu.upc.studywinproyect.entities.UsuariosXCurso;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IUsuariosXCursoService;
 import java.util.ArrayList;
@@ -29,25 +27,31 @@ public class UsuariosXCursoController {
         }).collect(Collectors.toList());
     }
 
-    @PostMapping("/insert")
+    @PostMapping
     public void insert(@RequestBody UsuariosXCurso dto) {
         ModelMapper m=new ModelMapper();
         UsuariosXCurso u=m.map(dto, UsuariosXCurso.class);
         uxcService.insert(u);
     }
 
-    @GetMapping("/list/{id}")
-    public UsuariosXCurso listID(@PathVariable Long id) {
-        return uxcService.listID(id);
+    @GetMapping("/{id}")
+    public UsuariosXCursoDTO listID(@PathVariable("id") Long id) {
+        ModelMapper m=new ModelMapper();
+        UsuariosXCursoDTO dto=m.map(uxcService.listID(id), UsuariosXCursoDTO.class);
+        return dto;
+
+
     }
 
-    @PutMapping("/update")
-    public void update(@RequestBody UsuariosXCurso usuariosXCurso) {
-        uxcService.update(usuariosXCurso);
+    @PutMapping
+    public void update(@RequestBody UsuariosXCursoDTO dto) {
+        ModelMapper m = new ModelMapper();
+        UsuariosXCurso ro=m.map(dto,UsuariosXCurso.class);
+        uxcService.update(ro);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable Long id) {
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Long id) {
         uxcService.delete(id);
     }
     //Como programador, quiero listar los usuarios que no están inscritos en ningún curso para identificar aquellos que necesitan ser asignados a uno.
