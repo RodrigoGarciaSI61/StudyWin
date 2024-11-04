@@ -3,6 +3,7 @@ package pe.edu.upc.studywinproyect.serviceImplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.studywinproyect.entities.DetalleXCanje;
+import pe.edu.upc.studywinproyect.entities.Usuario;
 import pe.edu.upc.studywinproyect.repositories.IDetalleXCanjeRepository;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IDetalleXCanjeService;
 
@@ -51,5 +52,10 @@ public class DetalleXCanjeServiceImplement implements IDetalleXCanjeService {
     @Override
     public List<String[]> cantcanjeadosxdepartamento() {
         return detalleXCanjeRepository.cantcanjeadosxdepartamento();
+    }
+
+    @Override
+    public DetalleXCanje listID(int id) {
+        return detalleXCanjeRepository.findById(id).orElse(new DetalleXCanje());
     }
 }

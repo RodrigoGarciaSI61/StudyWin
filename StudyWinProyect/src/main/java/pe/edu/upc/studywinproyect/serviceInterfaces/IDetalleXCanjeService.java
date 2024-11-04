@@ -1,6 +1,7 @@
 package pe.edu.upc.studywinproyect.serviceInterfaces;
 
 import pe.edu.upc.studywinproyect.entities.DetalleXCanje;
+import pe.edu.upc.studywinproyect.entities.Usuario;
 
 import java.util.List;
 
@@ -26,4 +27,5 @@ public interface IDetalleXCanjeService {
     public List<String[]> productoscanjeados();
     //Como programador, quiero obtener la cantidad total de productos canjeados por departamento para poder analizar el comportamiento de consumo en diferentes regiones geográficas.
     public List<String[]> cantcanjeadosxdepartamento();
+    public DetalleXCanje listID(int id);
 }

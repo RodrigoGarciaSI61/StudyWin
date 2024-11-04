@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.studywinproyect.dtos.CantCanjeadosxDepartamentoDTO;
 import pe.edu.upc.studywinproyect.dtos.DetalleXCanjeDTO;
 import pe.edu.upc.studywinproyect.dtos.ProductosCanjeadosDTO;
+import pe.edu.upc.studywinproyect.dtos.UsuarioDTO;
 import pe.edu.upc.studywinproyect.entities.DetalleXCanje;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IDetalleXCanjeService;
 
@@ -101,5 +102,11 @@ public class DetalleXCanjeController {
             listaDTO.add(dto);
         }
         return listaDTO;
+    }
+    @GetMapping("/{id}")
+    public  DetalleXCanjeDTO listarporID(@PathVariable("id") int id){
+        ModelMapper m=new ModelMapper();
+        DetalleXCanjeDTO dto=m.map(detalleXCanjeService.listID(id),DetalleXCanjeDTO.class);
+        return dto;
     }
 }
