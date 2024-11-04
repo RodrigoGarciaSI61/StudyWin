@@ -1,5 +1,6 @@
 package pe.edu.upc.studywinproyect.serviceInterfaces;
 
+import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.entities.Usuario;
 
 import java.util.List;
@@ -21,5 +22,7 @@ public interface IUsuarioService {
     public List<Usuario> buscarporDni(String dni);
     //Como programador quiero listar la cantidad de usuarios por institución educativa para gestionarlo
     public List<String[]> UsuariosporIE();
+    //Como programador quiero listar por id a los usuarios
+    public Usuario listID(long id);
 
 }

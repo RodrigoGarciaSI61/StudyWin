@@ -2,6 +2,7 @@ package pe.edu.upc.studywinproyect.serviceImplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.studywinproyect.entities.Asociado;
 import pe.edu.upc.studywinproyect.entities.Usuario;
 import pe.edu.upc.studywinproyect.repositories.IUsuarioRepository;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IUsuarioService;
@@ -51,6 +52,10 @@ public class UsuarioServiceImplement implements IUsuarioService {
     @Override
     public List<String[]> UsuariosporIE() {
         return uR.UsuariosxIE();
+    }
+    @Override
+    public Usuario listID(long id) {
+        return uR.findById(id).orElse(new Usuario());
     }
 
 }

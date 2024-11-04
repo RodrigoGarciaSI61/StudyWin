@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.studywinproyect.dtos.CanjeDTO;
 import pe.edu.upc.studywinproyect.dtos.EnabledUsersDTO;
 import pe.edu.upc.studywinproyect.dtos.UsuarioDTO;
 import pe.edu.upc.studywinproyect.dtos.UsuarioporIEDTO;
@@ -101,5 +102,12 @@ public class UsuarioController {
             listaDTO.add(dto);
         }
         return listaDTO;
+    }
+    //Como programador quiero listar por id a los usuarios
+    @GetMapping("/{id}")
+    public UsuarioDTO listarporID(@PathVariable("id") Long id){
+        ModelMapper m=new ModelMapper();
+        UsuarioDTO dto=m.map(uS.listID(id),UsuarioDTO.class);
+        return dto;
     }
 }
