@@ -23,7 +23,7 @@ public class Usuario implements Serializable {
     @Column(name="dni",length = 10, unique = true )
     private String dni;
 
-    @Column(name="email",nullable = false,length = 100 )
+    @Column(name="email",nullable = false,length = 100, unique = true )
     private String email;
 
     @Column(name="contrasena",nullable = false,length = 200 )

@@ -63,6 +63,8 @@ public class UsuarioController {
     public void modificar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
         Usuario ro=m.map(dto,Usuario.class);
+        String encodedPassword = passwordEncoder.encode(ro.getContrasena());
+        ro.setContrasena(encodedPassword);
         uS.update(ro);
     }
     //Como programador quiero eliminar a los usuarios para gestionarlos
