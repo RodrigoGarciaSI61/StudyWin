@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.studywinproyect.dtos.CanjeDTO;
 import pe.edu.upc.studywinproyect.dtos.TipoRecompensaDTO;
 import pe.edu.upc.studywinproyect.entities.TipoRecompensa;
 import pe.edu.upc.studywinproyect.serviceInterfaces.ITipoRecompensaService;
@@ -46,5 +47,12 @@ public class TipoRecompensaController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         trS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public TipoRecompensaDTO listarporID(@PathVariable("id") Integer id){
+        ModelMapper m=new ModelMapper();
+        TipoRecompensaDTO dto=m.map(trS.listID(id),TipoRecompensaDTO.class);
+        return dto;
     }
 }
