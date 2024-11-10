@@ -2,6 +2,7 @@ package pe.edu.upc.studywinproyect.serviceImplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.entities.Cuestionario_academico;
 import pe.edu.upc.studywinproyect.repositories.ICuestionario_academicosRepository;
 import pe.edu.upc.studywinproyect.serviceInterfaces.ICuestionario_academicoService;
@@ -47,5 +48,10 @@ public class Cuestionario_academicoServiceImplement implements ICuestionario_aca
     @Override
     public List<String[]> findSpecificFieldsByNombreCurso(String nombreCurso) {
         return cR.findSpecificFieldsByNombreCurso(nombreCurso);
+    }
+
+    @Override
+    public Cuestionario_academico listID(int id) {
+        return cR.findById(id).orElse(new Cuestionario_academico());
     }
 }

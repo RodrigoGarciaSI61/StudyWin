@@ -1,6 +1,7 @@
 package pe.edu.upc.studywinproyect.serviceInterfaces;
 
 import org.springframework.data.repository.query.Param;
+import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.entities.Cuestionario_academico;
 
 import java.util.List;
@@ -24,4 +25,6 @@ public interface ICuestionario_academicoService {
 
     //Como programador quiero listar los Cuestionarios academicos por cada nombre de curso para gestionarlos
     public List<String[]> findSpecificFieldsByNombreCurso(String nombreCurso);
+
+    public Cuestionario_academico listID(int id);
 }

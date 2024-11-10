@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.studywinproyect.dtos.CanjeDTO;
 import pe.edu.upc.studywinproyect.dtos.CuestionarioXCursoDTO;
 import pe.edu.upc.studywinproyect.dtos.Cuestionario_academicoDTO;
 import pe.edu.upc.studywinproyect.dtos.CuestionariosresueltosDTO;
@@ -49,6 +50,13 @@ public class Cuestionario_academicoController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         cS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public Cuestionario_academicoDTO listarporID(@PathVariable("id") Integer id){
+        ModelMapper m=new ModelMapper();
+        Cuestionario_academicoDTO dto=m.map(cS.listID(id),Cuestionario_academicoDTO.class);
+        return dto;
     }
 
     //Como programador quiero listar los canjes por usuario para gestionarlos

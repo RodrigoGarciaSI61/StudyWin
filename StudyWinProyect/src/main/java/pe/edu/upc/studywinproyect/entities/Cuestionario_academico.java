@@ -21,7 +21,7 @@ public class Cuestionario_academico implements Serializable {
     @Column(name="imagen",nullable = false )
     private String imagen;
     @ManyToOne
-    @JoinColumn(name = "id_curso")
+    @JoinColumn(name = "curso")
     private Curso curso;
 
     public Cuestionario_academico() {
