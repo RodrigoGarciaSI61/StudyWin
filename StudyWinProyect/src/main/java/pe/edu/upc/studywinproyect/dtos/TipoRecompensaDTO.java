@@ -3,7 +3,7 @@ package pe.edu.upc.studywinproyect.dtos;
 public class TipoRecompensaDTO {
 
     private int idTipoRecompensa;
-    private String Tipo;
+    private String tipo;
 
     public int getIdTipoRecompensa() {
         return idTipoRecompensa;
@@ -14,10 +14,10 @@ public class TipoRecompensaDTO {
     }
 
     public String getTipo() {
-        return Tipo;
+        return tipo;
     }
 
     public void setTipo(String tipo) {
-        this.Tipo = tipo;
+        this.tipo = tipo;
     }
 }

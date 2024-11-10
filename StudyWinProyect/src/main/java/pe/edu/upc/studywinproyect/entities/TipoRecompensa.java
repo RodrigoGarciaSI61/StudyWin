@@ -9,15 +9,15 @@ public class TipoRecompensa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTipoRecompensa;
 
-    @Column(name = "Tipo", nullable = false, length = 25)
-    private String Tipo;
+    @Column(name = "tipo", nullable = false, length = 25)
+    private String tipo;
 
     public TipoRecompensa() {
     }
 
     public TipoRecompensa(int idTipoRecompensa, String tipo) {
         this.idTipoRecompensa = idTipoRecompensa;
-        this.Tipo = tipo;
+        this.tipo = tipo;
     }
 
     public int getIdTipoRecompensa() {
@@ -29,10 +29,10 @@ public class TipoRecompensa {
     }
 
     public String getTipo() {
-        return Tipo;
+        return tipo;
     }
 
     public void setTipo(String tipo) {
-        this.Tipo = tipo;
+        this.tipo = tipo;
     }
 }
