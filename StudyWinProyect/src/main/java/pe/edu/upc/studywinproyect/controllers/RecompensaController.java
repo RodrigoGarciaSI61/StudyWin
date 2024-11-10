@@ -43,13 +43,20 @@ public class RecompensaController {
         rS.update(re);
     }
 
+    @GetMapping("/{id}")
+    public RecompensaDTO listarporID(@PathVariable("id") Integer id){
+        ModelMapper m=new ModelMapper();
+        RecompensaDTO dto=m.map(rS.listID(id),RecompensaDTO.class);
+        return dto;
+    }
+
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         rS.delete(id);
     }
 
     @GetMapping("/busquedabynombre")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+
     public List<RecompensaDTO> buscarpornombre(@RequestParam String n){
         return rS.buscarNombre(n).stream().map(x->{
             ModelMapper m = new ModelMapper();
@@ -58,7 +65,7 @@ public class RecompensaController {
     }
 
     @GetMapping("/agotadas")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+
     public List<RecompensaagotadaDTO> obtenerstock(){
         List<String[]> lista=rS.recompensaagotada();
         List<RecompensaagotadaDTO>listaDTO=new ArrayList<>();
@@ -73,7 +80,7 @@ public class RecompensaController {
     }
 
     @GetMapping("/recompensaxasociado")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+
     public List<RecompensaxasociadoDTO> recompesaxasociado(){
         List<String[]> lista=rS.recompesaxasociado();
         List<RecompensaxasociadoDTO>listaDTO=new ArrayList<>();
@@ -93,7 +100,7 @@ public class RecompensaController {
     }
 
     @GetMapping("/recompensaxtipo")
-    @PreAuthorize("hasAuthority('CLIENTE')")
+
     public List<RecompensaxtipoDTO> obtenertipo(){
         List<String[]> lista=rS.recompensaxtipo();
         List<RecompensaxtipoDTO>listaDTO=new ArrayList<>();
@@ -107,7 +114,7 @@ public class RecompensaController {
     }
 
     @GetMapping("/populares")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+
     public List<RecompesapopularDTO> obtenerpopulares(){
         List<String[]> lista=rS.rpopulares();
         List<RecompesapopularDTO>listaDTO=new ArrayList<>();

@@ -20,11 +20,12 @@ public class Recompensa {
     private String imagen;
 
     @ManyToOne
-    @JoinColumn(name = "id_tipo")
+    @JoinColumn(name = "tipo_recompensa")
     private TipoRecompensa tipo_recompensa;
-    @ManyToOne
-    @JoinColumn(name = "id_asociado")
-    private Asociado Asociado;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "asociado")
+    private Asociado asociado;
 
     public Recompensa() {
     }
@@ -36,7 +37,7 @@ public class Recompensa {
         this.descripcion = descripcion;
         this.stock = stock;
         this.tipo_recompensa = tipo_recompensa;
-        Asociado = asociado;
+        this.asociado = asociado;
         this.imagen = imagen;
     }
 
@@ -97,10 +98,10 @@ public class Recompensa {
     }
 
     public Asociado getAsociado() {
-        return Asociado;
+        return asociado;
     }
 
     public void setAsociado(Asociado asociado) {
-        Asociado = asociado;
+        this.asociado = asociado;
     }
 }

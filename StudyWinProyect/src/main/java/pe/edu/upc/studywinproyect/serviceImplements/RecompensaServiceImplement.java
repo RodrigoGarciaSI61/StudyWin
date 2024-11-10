@@ -2,6 +2,7 @@ package pe.edu.upc.studywinproyect.serviceImplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.entities.Recompensa;
 import pe.edu.upc.studywinproyect.entities.TipoRecompensa;
 import pe.edu.upc.studywinproyect.repositories.IRecompensaRepository;
@@ -57,5 +58,10 @@ public class RecompensaServiceImplement implements IRecompensaService {
     @Override
     public List<String[]> rpopulares() {
         return rR.recompensaspopulares();
+    }
+
+    @Override
+    public Recompensa listID(int id) {
+        return rR.findById(id).orElse(new Recompensa());
     }
 }

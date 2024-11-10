@@ -10,8 +10,8 @@ public class RecompensaDTO {
     private String descripcion;
     private int puntos;
     private int stock;
-    private TipoRecompensa tipoRecompensa;
-    private Asociado Asociado;
+    private TipoRecompensa tiporecompensa;
+    private Asociado asociado;
     private String imagen;
 
     public String getImagen() {
@@ -63,18 +63,18 @@ public class RecompensaDTO {
     }
 
     public TipoRecompensa getTipo_recompensa() {
-        return tipoRecompensa;
+        return tiporecompensa;
     }
 
     public void setTipo_recompensa(TipoRecompensa tipo_Recompensa) {
-        tipoRecompensa = tipo_Recompensa;
+        tiporecompensa = tipo_Recompensa;
     }
 
     public Asociado getAsociado() {
-        return Asociado;
+        return asociado;
     }
 
     public void setAsociado(Asociado asociado) {
-        Asociado = asociado;
+        this.asociado = asociado;
     }
 }

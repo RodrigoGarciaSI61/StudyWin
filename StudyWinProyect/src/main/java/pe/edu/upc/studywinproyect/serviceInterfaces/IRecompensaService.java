@@ -1,6 +1,7 @@
 package pe.edu.upc.studywinproyect.serviceInterfaces;
 
 import pe.edu.upc.studywinproyect.entities.Asociado;
+import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.entities.Recompensa;
 import pe.edu.upc.studywinproyect.entities.TipoRecompensa;
 
@@ -28,5 +29,7 @@ public interface IRecompensaService {
 
     //US048: Como programador quiero listar las recompensas más populares para mejorar la oferta.
     public List<String[]> rpopulares();
+
+    public Recompensa listID(int id);
 
 }
