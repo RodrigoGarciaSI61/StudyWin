@@ -1,5 +1,6 @@
 package pe.edu.upc.studywinproyect.serviceInterfaces;
 
+import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.entities.Pregunta;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface IPreguntaService {
     public List<String[]> preguntaxcuestionario();
     //Como programador, quiero listar las preguntas con la mayor cantidad de puntos en cada cuestionario académico para identificar las preguntas más valiosas en cada cuestionario.
     public List<String[]> preguntasmayorcantpuntos();
+
+    public Pregunta listID(int id);
 }

@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.studywinproyect.dtos.CanjeDTO;
 import pe.edu.upc.studywinproyect.dtos.PreguntasmayorpuntajeDTO;
 import pe.edu.upc.studywinproyect.dtos.PreguntasxCuestionarioDTO;
 import pe.edu.upc.studywinproyect.dtos.PreguntaDTO;
@@ -46,6 +47,14 @@ public class PreguntaController {
     public void eliminar(@PathVariable("id") Integer id){
         pS.delete(id);
     }
+
+    @GetMapping("/{id}")
+    public PreguntaDTO listarporID(@PathVariable("id") Integer id){
+        ModelMapper m=new ModelMapper();
+        PreguntaDTO dto=m.map(pS.listID(id),PreguntaDTO.class);
+        return dto;
+    }
+
     //Como programador quiero listar las preguntas por cuestionario para gestionarlos
     @GetMapping("/preguntaxcuestionario")
     public List<PreguntasxCuestionarioDTO> preguntaxcuestionario(){

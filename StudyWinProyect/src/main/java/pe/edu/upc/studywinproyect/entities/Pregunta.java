@@ -18,7 +18,7 @@ public class Pregunta implements Serializable {
     @Column(name="respuesta",length = 200,nullable = false)
     private String respuesta;
     @ManyToOne
-    @JoinColumn(name = "id_cuestionario")
+    @JoinColumn(name = "cuestionario")
     private Cuestionario_academico cuestionario;
     public Pregunta() {}
 

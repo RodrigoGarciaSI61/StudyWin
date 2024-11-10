@@ -2,6 +2,7 @@ package pe.edu.upc.studywinproyect.serviceImplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.studywinproyect.entities.Canje;
 import pe.edu.upc.studywinproyect.entities.Pregunta;
 import pe.edu.upc.studywinproyect.repositories.IPreguntaRepository;
 import pe.edu.upc.studywinproyect.serviceInterfaces.IPreguntaService;
@@ -42,5 +43,10 @@ public class PreguntaServiceImplement implements IPreguntaService {
     @Override
     public List<String[]> preguntasmayorcantpuntos() {
         return pR.preguntasmayorcantpuntos();
+    }
+
+    @Override
+    public Pregunta listID(int id) {
+        return pR.findById(id).orElse(new Pregunta());
     }
 }
