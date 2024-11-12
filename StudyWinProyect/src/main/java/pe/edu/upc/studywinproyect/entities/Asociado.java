@@ -20,7 +20,7 @@ public class Asociado implements Serializable {
     private LocalDate fecha_inicio;
     @Column(name="fecha_fin",nullable = true)
     private LocalDate fecha_fin;
-    @Column(name = "ruc", nullable = false, length = 10)
+    @Column(name = "ruc", nullable = false, length = 11)
     private String RUC;
     @Column(name = "imagen",nullable = false)
     private String imagen;
