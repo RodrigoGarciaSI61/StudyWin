@@ -14,7 +14,7 @@ public class Cuestionario_academico implements Serializable {
     private int id_cuestionario;
     @Column(name = "nombre",nullable = false,length = 40)
     private String nombres;
-    @Column(name = "descripcion",nullable = false,length = 40)
+    @Column(name = "descripcion",nullable = false,length = 400)
     private String descripcion;
     @Column(name="tiempo_limite",nullable = false )
     private int tiempo_limite;

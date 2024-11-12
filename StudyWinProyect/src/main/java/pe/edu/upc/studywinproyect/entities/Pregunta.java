@@ -11,11 +11,11 @@ public class Pregunta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_pregunta;
-    @Column(name="pregunta",length = 200,nullable = false)
+    @Column(name="pregunta",length = 400,nullable = false)
     private String pregunta;
     @Column(name="puntos",nullable = false)
     private int puntos;
-    @Column(name="respuesta",length = 200,nullable = false)
+    @Column(name="respuesta",length = 400,nullable = false)
     private String respuesta;
     @ManyToOne
     @JoinColumn(name = "cuestionario")

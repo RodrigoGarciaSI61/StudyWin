@@ -30,10 +30,13 @@ public class CanjeController {
     }
     //Como programador quiero guardar a los canjes para gestionarlos
     @PostMapping
-    public void registrar(@RequestBody CanjeDTO dto) {
-        ModelMapper m=new ModelMapper();
-        Canje u=m.map(dto, Canje.class);
-        cS.insert(u);
+    public CanjeDTO registrar(@RequestBody CanjeDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Canje canje = m.map(dto, Canje.class);
+        Canje canjeCreado = cS.insert(canje); // Obtiene el objeto Canje creado con el id
+
+        // Mapear el objeto Canje creado a CanjeDTO y devolverlo
+        return m.map(canjeCreado, CanjeDTO.class);
     }
     //Como programador quiero listar por id a los canjes
     @GetMapping("/{id}")

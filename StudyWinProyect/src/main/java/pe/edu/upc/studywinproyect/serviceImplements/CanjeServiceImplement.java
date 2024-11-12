@@ -18,8 +18,8 @@ public class CanjeServiceImplement implements ICanjeService {
     }
     //Como programador quiero guardar a los canjes para gestionarlos
     @Override
-    public void insert(Canje curso) {
-        cR.save(curso);
+    public Canje insert(Canje curso) {
+        return cR.save(curso); // Devuelve el objeto Canje creado
     }
     //Como programador quiero listar por id a los canjes
     @Override
