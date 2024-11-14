@@ -65,6 +65,7 @@ public class UsuarioController {
         Usuario ro=m.map(dto,Usuario.class);
         uS.update(ro);
     }
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     //Como programador quiero eliminar a los usuarios para gestionarlos
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Long id){
@@ -86,6 +87,7 @@ public class UsuarioController {
             return m.map(x,UsuarioDTO.class);
         }).collect(Collectors.toList());
     }
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     //Como programador quiero listar la cantidad de usuarios por institución educativa para gestionarlo    @GetMapping("/usuariosxIE")
     @GetMapping("/usuariosxIE")
     public List<UsuarioporIEDTO> usuariosxIE(){
@@ -103,6 +105,7 @@ public class UsuarioController {
         }
         return listaDTO;
     }
+
     //Como programador quiero listar por id a los usuarios
     @GetMapping("/{id}")
     public UsuarioDTO listarporID(@PathVariable("id") Long id){

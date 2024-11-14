@@ -54,6 +54,7 @@ public class CanjeController {
     }
     //Como programador quiero eliminar a los canjes para gestionarlos
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void eliminar(@PathVariable("id") Integer id){
         cS.delete(id);
     }

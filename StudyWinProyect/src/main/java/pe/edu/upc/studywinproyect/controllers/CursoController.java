@@ -49,6 +49,7 @@ public class CursoController {
     }
     //Como programador quiero eliminar a los cursos para gestionarlos
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void eliminar(@PathVariable("id") Integer id){
         cS.delete(id);
     }
@@ -68,6 +69,7 @@ public class CursoController {
             return m.map(x,CursoDTO.class);
         }).collect(Collectors.toList());
     }
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     //Como programador quiero listar la cantidad de cursos por categoria para gestionarlos
     @GetMapping("/cursoxcategoria")
     public List<CursosXCategoriaDTO> cursosxcategoria(){

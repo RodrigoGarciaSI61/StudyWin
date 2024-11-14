@@ -49,7 +49,7 @@ public class UsuariosXCursoController {
         UsuariosXCurso ro=m.map(dto,UsuariosXCurso.class);
         uxcService.update(ro);
     }
-
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
         uxcService.delete(id);
