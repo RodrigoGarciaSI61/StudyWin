@@ -29,6 +29,7 @@ public class TipoRecompensaController {
 
     // US043: Como programador quiero registrar un tipo de recompensa para gestionarlo
     @PostMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void registrar(@RequestBody TipoRecompensaDTO dto){
         ModelMapper m=new ModelMapper();
         TipoRecompensa tr=m.map(dto,TipoRecompensa.class);
@@ -37,6 +38,7 @@ public class TipoRecompensaController {
 
     // US044: Como programador  quiero modificar un tipo de recompensa para gestionarlo
     @PatchMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void modificar(@RequestBody TipoRecompensaDTO dto){
         ModelMapper m=new ModelMapper();
         TipoRecompensa tr=m.map(dto,TipoRecompensa.class);
@@ -45,6 +47,7 @@ public class TipoRecompensaController {
 
     // US045: Como programador  quiero eliminar un tipo de recompensa para gestionarlo
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void eliminar(@PathVariable("id") Integer id){
         trS.delete(id);
     }

@@ -30,6 +30,7 @@ public class RecompensaController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void registrar(@RequestBody RecompensaDTO dto){
         ModelMapper m=new ModelMapper();
         Recompensa r=m.map(dto,Recompensa.class);
@@ -51,6 +52,7 @@ public class RecompensaController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void eliminar(@PathVariable("id") Integer id){
         rS.delete(id);
     }

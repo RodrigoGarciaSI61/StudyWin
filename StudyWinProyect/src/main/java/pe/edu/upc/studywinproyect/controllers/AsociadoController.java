@@ -28,6 +28,7 @@ public class AsociadoController {
     }
     //Como programador quiero guardar a los asociados para gestionarlos
     @PostMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void registrar(@RequestBody AsociadoDTO dto) {
         ModelMapper m=new ModelMapper();
         Asociado u=m.map(dto, Asociado.class);
@@ -42,16 +43,20 @@ public class AsociadoController {
     }
     //Como progrmador quiero modificar a los asociados para gestionarlos
     @PutMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void modificar(@RequestBody AsociadoDTO dto){
         ModelMapper m = new ModelMapper();
         Asociado ro=m.map(dto,Asociado.class);
         aS.update(ro);
     }
+
     //Como programador quiero eliminar a los asociados para gestionarlos
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void eliminar(@PathVariable("id") Integer id){
         aS.delete(id);
     }
+
     //Como programador quiero buscar a los asociados por fecha para gestionarlos
     @GetMapping("/busquedabyfecha")
     public List<AsociadoDTO> buscar(@RequestParam LocalDate f){

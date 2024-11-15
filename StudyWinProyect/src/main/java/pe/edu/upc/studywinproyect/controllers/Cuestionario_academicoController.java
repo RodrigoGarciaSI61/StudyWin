@@ -32,6 +32,7 @@ public class Cuestionario_academicoController {
 
     //Como programador quiero guardar a los cuestionarios academicos para gestionarlos
     @PostMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void registrar(@RequestBody Cuestionario_academicoDTO dto) {
         ModelMapper m=new ModelMapper();
         Cuestionario_academico u=m.map(dto, Cuestionario_academico.class);
@@ -40,6 +41,7 @@ public class Cuestionario_academicoController {
 
     //Como progrmador quiero modificar a los cuestionarios academicos para gestionarlos
     @PutMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void modificar(@RequestBody Cuestionario_academicoDTO dto){
         ModelMapper m = new ModelMapper();
         Cuestionario_academico ro=m.map(dto,Cuestionario_academico.class);
@@ -48,6 +50,7 @@ public class Cuestionario_academicoController {
 
     //Como programador quiero eliminar a los cuestionarios academicos para gestionarlos
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void eliminar(@PathVariable("id") Integer id){
         cS.delete(id);
     }

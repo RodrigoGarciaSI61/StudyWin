@@ -28,6 +28,7 @@ public class CursoController {
     }
     //Como programador quiero guardar a los cursos para gestionarlos
     @PostMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void registrar(@RequestBody CursoDTO dto) {
         ModelMapper m=new ModelMapper();
         Curso u=m.map(dto, Curso.class);
@@ -42,6 +43,7 @@ public class CursoController {
     }
     //Como progrmador quiero modificar a los cursos para gestionarlos
     @PutMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void modificar(@RequestBody CursoDTO dto){
         ModelMapper m = new ModelMapper();
         Curso ro=m.map(dto,Curso.class);

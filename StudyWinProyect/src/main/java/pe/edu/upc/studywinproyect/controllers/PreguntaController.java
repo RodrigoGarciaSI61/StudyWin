@@ -30,6 +30,7 @@ public class PreguntaController {
     }
     //Como programador quiero guardar a las preguntas para gestionarlos
     @PostMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void registrar(@RequestBody PreguntaDTO dto) {
         ModelMapper m=new ModelMapper();
         Pregunta u=m.map(dto, Pregunta.class);
@@ -37,6 +38,7 @@ public class PreguntaController {
     }
     //Como progrmador quiero modificar a las preguntas para gestionarlos
     @PutMapping
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void modificar(@RequestBody PreguntaDTO dto){
         ModelMapper m = new ModelMapper();
         Pregunta ro=m.map(dto,Pregunta.class);
@@ -44,6 +46,7 @@ public class PreguntaController {
     }
     //Como programador quiero eliminar a las preguntas para gestionarlos
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('DEVELOPER')")
     public void eliminar(@PathVariable("id") Integer id){
         pS.delete(id);
     }
