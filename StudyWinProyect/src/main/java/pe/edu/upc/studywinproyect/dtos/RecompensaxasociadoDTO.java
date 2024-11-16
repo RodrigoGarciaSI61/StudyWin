@@ -3,7 +3,7 @@ package pe.edu.upc.studywinproyect.dtos;
 public class RecompensaxasociadoDTO {
     private int id_asociado;
     private String empresa;
-    private String RUC;
+    private String ruc;
     private int cantidad_recompensas;
 
     public int getId_asociado() {
@@ -23,11 +23,11 @@ public class RecompensaxasociadoDTO {
     }
 
     public String getRUC() {
-        return RUC;
+        return ruc;
     }
 
-    public void setRUC(String RUC) {
-        this.RUC = RUC;
+    public void setRUC(String ruc) {
+        this.ruc = ruc;
     }
 
     public int getCantidad_recompensas() {

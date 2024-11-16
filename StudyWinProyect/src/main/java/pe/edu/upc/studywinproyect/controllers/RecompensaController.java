@@ -82,7 +82,6 @@ public class RecompensaController {
     }
 
     @GetMapping("/recompensaxasociado")
-
     public List<RecompensaxasociadoDTO> recompesaxasociado(){
         List<String[]> lista=rS.recompesaxasociado();
         List<RecompensaxasociadoDTO>listaDTO=new ArrayList<>();
@@ -91,11 +90,7 @@ public class RecompensaController {
             dto.setId_asociado(Integer.parseInt(columna[0]));
             dto.setEmpresa(columna[1]);
             dto.setRUC(columna[2]);
-            if (columna[3] != null) {
-                dto.setCantidad_recompensas(Integer.parseInt(columna[3]));
-            }else {
-                dto.setCantidad_recompensas(0);
-            }
+            dto.setCantidad_recompensas(Integer.parseInt(columna[3]));
             listaDTO.add(dto);
         }
         return listaDTO;

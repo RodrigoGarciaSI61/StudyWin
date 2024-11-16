@@ -22,7 +22,7 @@ public interface IRecompensaRepository extends JpaRepository<Recompensa, Integer
     //Como usuario quiero listar la cantidad de recompensas por asociados para gestionarlos
     @Query(value="SELECT A.id_asociado, A.empresa, A.RUC, COUNT(R.id_recompensa) AS cantidad_recompensas\n" +
             "FROM Asociado A\n" +
-            "LEFT JOIN Recompensa R ON A.id_asociado = R.id_asociado\n" +
+            "LEFT JOIN Recompensa R ON A.id_asociado = R.asociado\n" +
             "GROUP BY A.id_asociado, A.empresa, A.RUC;",nativeQuery = true)
     public List<String[]> recompesaxasociado();
 
